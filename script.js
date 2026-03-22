@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (ytContainer) {
                 if (targetId === 'view-about') {
                     if (ytContainer.innerHTML.trim() === '' || ytContainer.innerHTML.indexOf('iframe') === -1) {
-                        ytContainer.innerHTML = `<iframe width="1435" height="807" src="${ytContainer.getAttribute('data-src')}" title="[CF2 - 민생편] 주민을 위해 노정현이 간다!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+                        ytContainer.innerHTML = `<iframe width="100%" height="100%" src="${ytContainer.getAttribute('data-src')}" title="[민생편] 주민을 위해 노정현이 간다!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.1); aspect-ratio:16/9;"></iframe>`;
                     }
                 } else {
                     ytContainer.innerHTML = '';
