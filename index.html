@@ -1,660 +1,847 @@
 <!DOCTYPE html>
-<html lang="ko" class="scroll-smooth">
+<html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>진보당 이정은 연산8·9동 구의원 후보</title>
-<meta name="description" content="연산8·9동 구의원 후보 이정은 공식 홈페이지입니다.">
-
-<!-- Open Graph for SNS (Kakao, Telegram, Facebook etc.) -->
-<meta property="og:title" content="진보당 이정은 연산8·9동 구의원 후보">
-<meta property="og:description" content="연산8·9동 주민을 위해 실천하는 일꾼, 이정은과 함께해주세요!">
-<meta property="og:image" content="https://busanjinbo.github.io/yeonje89/assets/thumbnail.png">
-<meta property="og:url" content="https://busanjinbo.github.io/yeonje89/">
-<meta property="og:type" content="website">
-
-<!-- Twitter Card 설정 (텔레그램, 트위터 최적화) -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="진보당 이정은 연산8·9동 구의원 후보">
-<meta name="twitter:description" content="연산8·9동 주민을 위해 실천하는 일꾼, 이정은과 함께해주세요!">
-<meta name="twitter:image" content="https://busanjinbo.github.io/yeonje89/assets/thumbnail.png">
-<meta name="twitter:domain" content="busanjinbo.github.io">
-
-<!-- Pretendard 폰트 (고급스럽고 가독성 뛰어남) -->
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-<!-- Tailwind CSS CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-<!-- Tailwind 설정 -->
-<script>
-tailwind.config = {
-    theme: {
-        extend: {
-            fontFamily: {
-                sans: ['Pretendard', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-            },
-            colors: {
-                primary: '#ffffff', // 메인 배경 (흰색)
-                secondary: '#addef8', // 메인/서브 테마 넓은 면적 (하늘색)
-                secondarydark: '#7bc1e8', // 텍스트 등 가독성을 위한 하늘색 톤
-                point: '#e60012', // 강조/복사버튼 용도 (빨간색 - 극소량)
-                dark: '#1e293b', // 주요 텍스트 
-                graytext: '#475569', // 부가 텍스트
-                graylight: '#f8fafc', // 보조 배경
-            }
-        }
-    }
-}
-</script>
-<style>
-body {
-    font-family: 'Pretendard', sans-serif;
-    color: #1e293b;
-    background-color: #ffffff;
-    word-break: keep-all; 
-}
-html {
-    scroll-padding-top: 70px; 
-}
-.img-cover {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
-/* 아코디언 관련 애니메이션 */
-.donate-details {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
-}
-.donate-details.active {
-    max-height: 800px;
-    opacity: 1;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-}
-</style>
-</head>
-<body class="bg-primary antialiased">
-<!-- 0. 상단 네비게이션바 -->
-<nav class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur shadow-sm z-50 border-b-4 border-secondary transition-all">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-        <div class="flex justify-between items-center h-16 md:h-20">
-            <a href="#" class="flex items-center gap-2 group">
-                <!-- 진보당 로고 -->
-                <img src="./assets/logo.png" alt="진보당 로고" class="h-5 md:h-7 w-auto object-contain">
-                <div class="w-8 h-8 md:w-10 md:h-10 rounded-full bg-secondary flex items-center justify-center text-dark font-extrabold text-lg border border-white shadow-sm">
-                    5
-                </div>
-                <span class="text-xl md:text-2xl font-black tracking-tight text-dark group-hover:text-secondarydark transition-colors">
-                    이정은
-                </span>
-            </a>
-            <div class="hidden md:flex space-x-6 items-center">
-                <a href="#hero" class="text-lg font-bold text-gray-700 hover:text-secondarydark transition-colors">홈</a>
-                <a href="#donate" class="text-lg font-bold text-gray-700 hover:text-secondarydark transition-colors">후원안내</a>
-                <a href="#about" class="text-lg font-bold text-gray-700 hover:text-secondarydark transition-colors">후보소개</a>
-                <a href="#activity" class="text-lg font-bold text-gray-700 hover:text-secondarydark transition-colors">지역활동</a>
-                <a href="#pledge" class="text-lg font-bold text-gray-700 hover:text-secondarydark transition-colors">공약안내</a>
-            </div>
-            <button id="mobile-menu-btn" class="md:hidden text-dark p-2 focus:outline-none">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
-        </div>
-    </div>
-    <!-- 모바일 드롭다운 -->
-    <div id="mobile-menu" class="hidden md:hidden bg-blue-50 border-t border-secondary/30 drop-shadow-lg">
-        <div class="flex flex-col px-4 pt-2 pb-6 space-y-2">
-            <a href="#hero" class="mobile-link block px-4 py-3 rounded-lg text-lg text-center font-bold text-dark hover:bg-secondary/40">홈</a>
-            <a href="#donate" class="mobile-link block px-4 py-3 rounded-lg text-lg text-center font-bold text-dark hover:bg-secondary/40">후원안내</a>
-            <a href="#about" class="mobile-link block px-4 py-3 rounded-lg text-lg text-center font-bold text-dark hover:bg-secondary/40">후보소개</a>
-            <a href="#activity" class="mobile-link block px-4 py-3 rounded-lg text-lg text-center font-bold text-dark hover:bg-secondary/40">지역활동</a>
-            <a href="#pledge" class="mobile-link block px-4 py-3 rounded-lg text-lg text-center font-bold text-dark hover:bg-secondary/40">공약안내</a>
-        </div>
-    </div>
-</nav>
-
-<!-- 1. 메인 히어로 섹션 -->
-<header id="hero" class="relative w-full mt-16 md:mt-20 pt-10 md:pt-0 md:h-[80vh] min-h-[600px] bg-sky-50 overflow-hidden flex items-center">
-    <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-secondary rounded-full opacity-40 blur-3xl transform translate-x-1/3 -translate-y-1/3"></div>
-    <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary rounded-full opacity-20 blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
-    <div class="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row shadow-none items-center justify-between">
-        <!-- 좌측 텍스트 -->
-        <div class="w-full md:w-3/5 text-center md:text-left z-20 md:pr-4 pt-8 md:pt-0">
-            <div class="inline-flex items-center justify-center gap-2 mb-4">
-                <span class="px-3 py-1 bg-point text-white font-black text-sm md:text-base rounded-md shadow-sm">기호 5번</span>
-                <span class="text-lg md:text-xl font-bold text-secondarydark">노정현과 함께</span>
-            </div>
-            <!-- 메인 타이틀 -->
-            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-dark leading-tight tracking-tight mb-4 break-keep">
-                언제나 주민 곁에<br>
-                일하는 사람<br>
-                <span class="text-secondarydark">이정은</span>
-            </h1>
-            <!-- 서브 설명 -->
-            <p class="text-xl md:text-2xl text-graytext font-medium break-keep mb-8 bg-white/60 inline-block px-3 py-1 rounded-lg">
-                연산8·9동 구의원 후보
-            </p>
-        </div>
-        <!-- 우측 후보자 사진 (4:5 아치형 디자인 강제 적용) -->
-        <div class="w-10/12 sm:w-1/2 md:w-2/5 flex justify-center mt-12 md:mt-0 relative z-10">
-            <!-- 이미지가 4:5 꽉 차는 아치형으로 그려집니다. 배경 여백 문제를 완벽히 해결! -->
-            <img src="./assets/profile.png" alt="이정은" class="w-full max-w-[400px] h-auto object-cover rounded-t-full rounded-b-2xl shadow-xl shadow-secondary/30 bg-secondary/20" style="aspect-ratio: 4/5;">
-        </div>
-    </div>
-</header>
-
-<!-- 2. 후원 안내 섹션 -->
-<section id="donate" class="py-20 md:py-28 bg-white relative">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-10">
-            <h2 class="text-4xl md:text-5xl font-black text-dark mb-4 break-keep">이정은에게 힘이 되어주세요.</h2>
-            <div class="w-16 h-1.5 bg-secondary mx-auto mb-6"></div>
-            <h3 class="text-xl md:text-2xl text-secondarydark font-bold mb-6 break-keep">
-                오직, 연산8·9동 주민에게만 빚지고 싶습니다
-            </h3>
-            <p class="text-graytext text-lg md:text-xl font-medium space-y-2 break-keep bg-sky-50 py-6 px-4 rounded-xl border border-sky-100">
-                <span class="block text-dark font-bold">주민에게 빚져야 주민께 봉사로 갚습니다.</span>
-                <span class="block">10만원까지는 연말정산 시 <span class="text-point font-bold">전액 돌려받습니다.</span></span>
-                <span class="block">연산8·9동 주민의 후원이 간절합니다.</span>
-            </p>
-        </div>
-        <!-- 계좌 정보 및 복사 버튼 -->
-        <div class="bg-white border-2 border-secondary rounded-2xl p-6 md:p-10 shadow-lg text-center mb-8 relative">
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-                <span id="account-number" class="text-2xl sm:text-3xl md:text-4xl font-black text-dark tracking-tighter whitespace-nowrap">부산은행 101-2095-7369-08</span>
-            </div>
-            <p class="text-lg md:text-xl font-bold text-gray-700 mb-8 whitespace-nowrap">
-                예금주 : 이정은후원회(연제구의원선거)
-            </p>
-            <!-- 빨간색 포인트 컬러 버튼 -->
-            <button onclick="copyAccount()" class="inline-flex items-center justify-center gap-2 bg-point text-white text-lg font-bold px-8 py-4 rounded-xl shadow-lg shadow-point/30 hover:bg-red-700 active:scale-95 transition-all w-full sm:w-auto">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                계좌 복사하기
-            </button>
-        </div>
-        <!-- 후원문의 -->
-        <div class="mt-8 bg-graylight rounded-xl border border-gray-200 p-5 text-center">
-            <p class="text-lg md:text-xl font-bold text-dark">후원문의 : <span class="text-secondarydark cursor-pointer hover:font-black transition-all" onclick="copyPhoneNumber(this.innerText)" title="클릭하여 번호 복사">010-9476-6924</span></p>
-        </div>
-        <!-- 후원상세안내 아코디언 -->
-        <div class="mt-4 bg-graylight rounded-xl border border-gray-200">
-            <button id="donate-detail-btn" class="relative w-full flex items-center justify-center p-5 text-lg md:text-xl font-bold text-dark hover:bg-sky-50 transition-colors rounded-xl focus:outline-none">
-                <span>후원상세안내</span>
-                <svg id="donate-detail-icon" class="absolute right-5 w-6 h-6 text-graytext transition-transform duration-300 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-            </button>
-            <div id="donate-detail-content" class="donate-details px-5 bg-white rounded-b-xl text-graytext text-base md:text-lg border-t border-gray-200">
-                <ul class="list-disc pl-5 space-y-3 font-medium">
-                    <li>10만원까지 전액 세액공제(연말정산 시 전액 돌려받음)</li>
-                    <li>10만원 초과분은 연말정산 시 15% 세액공제 됩니다.</li>
-                    <li>1인당 연간 최대 100만원까지 후원이 가능합니다.<br><span class="text-sm md:text-base text-gray-500">(법인, 단체, 외국인, 교원, 공무원은 후원이 불가)</span></li>
-                    <li>익명기부는 1회 10만원 이하, 연간 120만원 이하 후원 가능합니다.</li>
-                    <li class="rounded p-4 bg-sky-50 text-dark border-l-4 border-secondary font-bold">
-                        영수증 발행 : 이름 / 주민번호 / 전화번호 / 주소 / 후원금액 / 입금일<br>
-                        <span class="text-xl text-secondarydark break-words cursor-pointer hover:font-black transition-all" onclick="copyPhoneNumber(this.innerText)" title="클릭하여 번호 복사">010-9476-6924</span>로 문자 보내주세요
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 3. 후보 소개 섹션 (2번째 이미지) -->
-<section id="about" class="py-20 bg-sky-50 relative border-t-2 border-secondary border-opacity-30">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        
-        <!-- 이정은의 삶은 봉사입니다 & 약력(좌) + Profile 사진(우) -->
-        <div class="flex flex-col md:flex-row gap-10">
-            <!-- 왼쪽 텍스트: 타이틀 + 약력 -->
-            <div class="w-full md:w-1/2 flex flex-col pt-4">
-                <div class="mb-10 flex justify-center md:justify-start">
-                    <div class="flex flex-row items-center justify-center gap-2 sm:gap-6 w-fit mx-auto md:mx-0">
-                        <div class="text-center md:text-left shrink-0">
-                            <h2 class="text-[2.3rem] leading-[1.1] sm:text-5xl md:text-6xl font-black text-dark break-keep tracking-tight mb-3 md:mb-4">
-                                이정은의 삶은<br><span class="text-[#0284c7]">봉사입니다</span>
-                            </h2>
-                            <p class="text-[1rem] sm:text-xl md:text-2xl font-bold bg-white text-dark px-3 sm:px-6 py-2 sm:py-3 inline-block rounded-2xl shadow-sm border border-gray-100 mt-1 md:mt-2">
-                                언제나 주민 곁에 일하는 사람
-                            </p>
-                        </div>
-                        <!-- 모바일 전용 보조 이미지 (오른쪽에 작게, 텍스트와 가깝게) -->
-                        <div class="w-[110px] sm:w-[140px] shrink-0 md:hidden flex justify-end">
-                            <img src="./assets/activity20.png" alt="이정은 프로필" class="w-full h-auto object-contain drop-shadow-md">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="w-fit mx-auto md:w-full md:mx-0">
-                    <div class="space-y-8">
-                        <div>
-                            <h3 class="font-bold text-[#0284c7] mb-3 text-xl border-l-4 border-[#0284c7] pl-3">학교 현장과 함께한 교육 정책 전문가</h3>
-                            <ul class="space-y-1 text-graytext font-medium text-[0.95rem]">
-                                <li>전) 부산교육감직 인수위원회 자문위원</li>
-                                <li>전) 부산교육청 시민교육협의회 자문위원</li>
-                                <li>전) 부산교육청 인성교육진흥협의회 위원</li>
-                                <li>전) 부산교육청 혁신학교 추진위원 및 신설 심사위원</li>
-                                <li>신) 부산다행복학교 추진위원회 위원</li>
-                                <li>진) 연천초·과정초·연산중·남일고 학교운영위원</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-[#0284c7] mb-3 text-xl border-l-4 border-[#0284c7] pl-3">주민과 마을을 사랑하는 실천가</h3>
-                            <ul class="space-y-1 text-graytext font-medium text-[0.95rem]">
-                                <li>전) 은빛노인학교 운영위원장</li>
-                                <li>신) 마을공동체 '어울마당' 대표</li>
-                                <li>신) 연제구 마을기업 '소풍' 대표</li>
-                                <li>진) 부산복지개발원 마을현장지원단</li>
-                                <li>전) 부산풀뿌리네트워크 운영위원</li>
-                                <li>전) 연제구 주민참여예산위원회 위원</li>
-                                <li>전) 연제통합돌봄자문위원</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="font-bold text-[#0284c7] mb-3 text-xl border-l-4 border-[#0284c7] pl-3">여성과 아이들의 대변인</h3>
-                            <ul class="space-y-1 text-graytext font-medium text-[0.95rem]">
-                                <li>진) 토곡좋은엄마모임 회장</li>
-                                <li>전) 부산학부모연대 대표</li>
-                                <li>전) 부산여성회 부대표</li>
-                                <li>전) 부산교육희망네트워크 공동대표</li>
-                                <li>전) 초록우산어린이재단 <br><span class="text-sm text-gray-500">-아이들의 신호에 응답하라. Face for Child 55인 대표</span></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <ul class="space-y-1 text-graytext font-medium text-[0.95rem]">
-                                <li>현) 연제구여성회 대표</li>
-                                <li>현) 진보당 부산시당 여성위원장</li>
-                                <li>현) 연제주민대회 운영위원</li>
-                                <li>현) 연천초 학교운영위원</li>
-                                <li>현) 민주평통 대통령 자문위원</li>
-                                <li class="break-keep leading-snug">전) 2024 총선 노정현 선거운동본부<br><span class="pl-5 text-gray-500">연산8,9동 선거대책본부장</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 오른쪽: 길게 들어가는 프로필 사진(activity20) - 모바일에서는 타이틀 옆으로 이동하므로 숨김 -->
-            <div class="hidden md:flex w-full md:w-1/2 items-center justify-center relative">
-                <img src="./assets/activity20.png" alt="이정은 프로필" class="w-full max-w-[500px] h-auto object-contain drop-shadow-2xl">
-            </div>
-        </div>
-
-        <!-- 하단: 방역복 사진(activity21) & 인사말 박스 -->
-        <div class="mt-16 w-full max-w-4xl mx-auto flex flex-col items-center">
-            <!-- 방역복 사진 -->
-            <div class="w-full relative shadow-xl rounded-t-3xl overflow-hidden border border-gray-100">
-                <img src="./assets/activity21.png" alt="방역활동" class="w-full h-auto object-cover block">
-            </div>
-            <!-- 인사말 박스 (사진 바로 밑에 부착) -->
-            <div class="bg-white p-8 md:p-12 rounded-b-3xl shadow-xl border border-gray-100 w-full relative -mt-2 z-10 text-left">
-                <h4 class="text-2xl md:text-3xl font-black text-[#1e3a8a] mb-6 text-center break-keep leading-snug">연산 8·9동 주민 여러분,<br>구의원 후보 이정은입니다.</h4>
-                <div class="text-graytext text-[1rem] leading-relaxed break-keep space-y-4">
-                    <p>연산9동 한양아파트에서 <strong class="text-dark">신혼을 시작하며 이 동네에 뿌리</strong>를 내렸습니다. 육아에 지친 엄마들과 함께 만든 토곡좋은엄마모임, 그곳이 제 출발이었습니다.</p>
-                    <p><strong class="text-dark">노정현과 함께</strong> 골목을 돌며 주민의 목소리를 들었습니다. 비 오는 날의 민원, 밤늦은 마을문제 토론 속에서 정치는 '주민의 삶을 바꾸는 일'임을 배웠습니다. 개발보다 사람, 성과보다 삶, 권력보다 주민. 그 원칙으로 <strong class="text-[#0284c7] font-black text-lg">20년을 현장에서</strong> 살아왔습니다.</p>
-                    <p>이제, 그 목소리를 의회로 가져가겠습니다. <strong class="text-dark">오직 주민만 바라보며,</strong> 끝까지 함께 걷겠습니다.<br>고맙습니다.</p>
-                    <p class="text-right font-black text-dark text-xl mt-6">진보당 구의원 후보 이정은 드림</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 4. 지역활동 섹션 (3번째 이미지) -->
-<section id="activity" class="py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="flex items-center justify-center mb-12">
-            <h2 class="text-4xl md:text-5xl font-black text-[#1e3a8a] text-center px-6 py-2 border-y-4 border-[#8ecae6] bg-gradient-to-r from-transparent via-sky-50 to-transparent break-keep">
-                마을에서 주민과 함께 해냈습니다!
-            </h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <!-- 왼쪽: 배산유아숲터 -->
-            <div class="flex flex-col">
-                <!-- 4장 묶음 컨테이너 (고정 높이 할당) -->
-                <div class="flex flex-col h-[350px] mb-4">
-                    <div class="w-full h-2/3 rounded-t-xl overflow-hidden shadow-sm bg-gray-200">
-                        <img src="./assets/activity22.png" alt="배산유아숲터 화장실 건립 결정" class="w-full h-full object-cover">
-                    </div>
-                    <div class="w-full h-1/3 flex flex-row gap-2 mt-2">
-                        <img src="./assets/activity24.png" class="w-1/3 h-full object-cover rounded-b-xl shadow-sm" alt="활동사진">
-                        <img src="./assets/activity25.png" class="w-1/3 h-full object-cover rounded-b-xl shadow-sm" alt="활동사진">
-                        <img src="./assets/activity26.png" class="w-1/3 h-full object-cover rounded-b-xl shadow-sm" alt="활동사진">
-                    </div>
-                </div>
-                <!-- 텍스트 영역 (여백을 극소화하여 양쪽 높이 밸런스 매칭) -->
-                <div class="bg-sky-50/50 p-5 rounded-2xl border border-sky-100 flex-1 flex flex-col justify-between">
-                    <div>
-                        <h3 class="text-2xl font-black text-[#1e3a8a] mb-3 leading-tight break-keep">모두가 불가능하다고 한<br>배산유아숲터 화장실 건립</h3>
-                        <p class="text-[#0284c7] font-bold mb-3 bg-white px-3 py-1.5 rounded-lg border border-sky-200 shadow-sm text-sm inline-block">“아이들이 간이 텐트와 구덩이에서 용변을 해결하고 있어요”</p>
-                        <p class="text-graytext text-[0.95rem] leading-relaxed break-keep space-y-2">
-                            <span>아이들을 위한 유아숲터에 아이들이 이용할 수 있는 화장실이 없다는 절박한 목소리. 등산로라는 이유로 구청은 "어렵다"고만 말했습니다.</span>
-                            <span>연제구의 엄마·아빠 <strong>3,560명의 서명을 모아</strong> 주민과 함께 끝까지 요구했습니다. 유사한 조건의 산에 설치 가능한 화장실을 찾아보며 <strong>구청을 끈질기게 설득</strong>했습니다.</span>
-                            <span>마침내 배산유아숲터에 우리 아이들을 위한 깨끗하고 안전한 친환경 화장실을 건립했습니다.</span>
-                        </p>
-                    </div>
-                    <div class="mt-2">
-                        <strong class="text-dark bg-sky-200 px-2 py-1 rounded inline-block">결국, 주민의 힘으로 해냈습니다.</strong>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 오른쪽: 안전한 연제 / 소상공인 -->
-            <div class="flex flex-col">
-                <!-- 4장 묶음 컨테이너 (동일한 고정 높이 할당) -->
-                <div class="flex flex-col h-[350px] mb-4">
-                    <div class="w-full h-2/3 rounded-t-xl overflow-hidden shadow-sm bg-gray-200">
-                        <img src="./assets/activity23.png" alt="워킹스쿨버스 도입" class="w-full h-full object-cover">
-                    </div>
-                    <div class="w-full h-1/3 flex flex-row gap-2 mt-2">
-                        <img src="./assets/activity27.png" class="w-1/3 h-full object-cover rounded-b-xl shadow-sm" alt="활동사진">
-                        <img src="./assets/activity28.png" class="w-1/3 h-full object-cover rounded-b-xl shadow-sm" alt="활동사진">
-                        <img src="./assets/activity29.png" class="w-1/3 h-full object-cover rounded-b-xl shadow-sm" alt="활동사진">
-                    </div>
-                </div>
-                <!-- 텍스트 영역 2분할 (위와 전체 높이가 맞도록 구성) -->
-                <div class="flex flex-col flex-1 gap-3">
-                    <div class="p-4 rounded-2xl flex-1 mt-0 pt-0">
-                        <h3 class="text-2xl font-black text-[#1e3a8a] mb-2 leading-tight break-keep">엄마가 안심하고 아이들이 안전한 연제</h3>
-                        <p class="text-[#0284c7] font-bold mb-2 bg-white px-3 py-1.5 rounded-lg border border-sky-100 shadow-sm text-sm inline-block">“학교 주변 길이 너무 위험합니다. 아이들이 다니는 모든 길이 안전하길 바랍니다”</p>
-                        <ul class="list-disc pl-5 text-graytext text-[0.95rem] space-y-0.5">
-                            <li>등하교 동행도우미 <strong class="text-dark">워킹스쿨버스</strong> 도입 추진</li>
-                            <li>학교 앞 교통지도</li>
-                            <li>주민청구 <strong class="text-dark">아동통합돌봄조례</strong> 제정</li>
-                            <li>어린이날 행사, 전래놀이, 물총놀이 개최</li>
-                            <li>느린학습자 부모모임 '맘 편한 느린숲' 결성</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-gray-50 p-4 rounded-2xl border border-gray-100">
-                        <h3 class="text-xl font-black text-[#1e3a8a] mb-2 leading-tight break-keep">소상공인, 어르신들께 진심</h3>
-                        <ul class="list-disc pl-5 text-graytext text-[0.95rem] space-y-1">
-                            <li><strong>무료급식 예산 복원:</strong> 취약계층 어르신 무료급식 지원예산 복원을 위한 활동</li>
-                            <li><strong>에어컨 쉼터 마련:</strong> 교통지도 어르신들을 위한 학교 내 에어컨 쉼터</li>
-                            <li><strong>끝까지 챙기는 지원:</strong> 소상공인 부담경감 크레딧 등 신청부터 수령까지 챙기는 사람</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- 5. 공약 섹션 (4번째 이미지) - PC 가로배치, 모바일 세로배치 -->
-<section id="pledge" class="py-20 bg-sky-50 relative border-t border-sky-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center">
-        
-        <div class="flex flex-col lg:flex-row gap-10 w-full">
-            
-            <!-- 왼쪽 파트: 상단 제목, 배경 사진 및 액자 (PC에서는 lg:sticky로 고정) -->
-            <div class="w-full lg:w-5/12 flex flex-col">
-                <div class="lg:sticky lg:top-24 flex flex-col">
-                    <h3 class="w-full flex flex-col font-black text-dark mb-4 lg:mb-5 tracking-tighter text-left text-[2.2rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[2.8rem] xl:text-[3.4rem] leading-[1.1]">
-                        <span class="text-[#1e3a8a] mb-1">
-                            주민의 말씀을
-                        </span>
-                        <span>
-                            정책으로 실현합니다
-                        </span>
-                    </h3>
-                    <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-sky-100">
-                        <!-- 메인 배경 사진 (얼굴 잘리지 않게 조정) -->
-                        <img src="./assets/activity32.png" alt="이정은 현장 사진" class="w-full h-auto lg:h-[520px] object-cover object-top block">
-
-                        <!-- 하단부 겹치는 액자 사진 (absolute) -->
-                        <div class="absolute bottom-4 left-4 flex gap-2 md:gap-4 drop-shadow-2xl">
-                            <img src="./assets/activity33.png" alt="액자사진1" class="w-32 md:w-40 h-auto object-contain transform -rotate-3 hover:rotate-0 transition-transform cursor-pointer">
-                            <img src="./assets/activity34.png" alt="액자사진2" class="w-32 md:w-40 h-auto object-contain transform rotate-3 hover:rotate-0 transition-transform cursor-pointer">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 오른쪽 파트: 6대 공약 리스트 (수직 배치, 모바일 땐 밑으로) -->
-            <div class="w-full lg:w-7/12 flex flex-col gap-6">
-                <!-- 1 -->
-                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-sky-100 hover:shadow-md transition-shadow">
-                    <div class="flex items-center gap-4 mb-4">
-                        <span class="text-5xl font-black text-[#0284c7] italic">1</span>
-                        <div>
-                            <h4 class="text-2xl font-black text-[#0284c7] leading-tight mb-1">돌봄 1번지 연제</h4>
-                            <p class="text-sm font-bold text-dark bg-sky-100 px-3 py-1 rounded-sm inline-block">"아이 키우고 돌보기 좋은 동네"</p>
-                        </div>
-                    </div>
-                    <ul class="text-[1.05rem] text-dark font-medium space-y-2 ml-14">
-                        <li>· 아동통합돌봄 플랫폼 구축</li>
-                        <li>· 느린학습자 교육권 지원 조례 마련</li>
-                        <li>· 방학 중 학교 급식 지원</li>
-                        <li>· 지자체 운영 육아용품 대여점 확대</li>
-                    </ul>
-                </div>
-                
-                <!-- 2 -->
-                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-sky-100 hover:shadow-md transition-shadow">
-                    <div class="flex items-center gap-4 mb-4">
-                        <span class="text-5xl font-black text-[#e11d48] italic">2</span>
-                        <div>
-                            <h4 class="text-2xl font-black text-[#e11d48] leading-tight mb-1">아이·여성·노인 안전/생활 강화</h4>
-                            <p class="text-sm font-bold text-dark bg-rose-100 px-3 py-1 rounded-sm inline-block">"안전은 선택이 아니라 권리입니다"</p>
-                        </div>
-                    </div>
-                    <ul class="text-[1.05rem] text-dark font-medium space-y-2 ml-14">
-                        <li>· 워킹스쿨버스 제도 도입 및 통학로 개선</li>
-                        <li>· 여성·아동 안심귀갓길 대폭 확대</li>
-                        <li>· 골목 CCTV 및 가로등 주민신청제 운영</li>
-                        <li>· 어르신 품위유지비 전액 지원</li>
-                    </ul>
-                </div>
-
-                <!-- 3 -->
-                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-sky-100 hover:shadow-md transition-shadow">
-                    <div class="flex items-center gap-4 mb-4">
-                        <span class="text-5xl font-black text-[#0284c7] italic">3</span>
-                        <div>
-                            <h4 class="text-2xl font-black text-[#0284c7] leading-tight mb-1">골목상권·전통시장 살리기</h4>
-                            <p class="text-sm font-bold text-dark bg-sky-100 px-3 py-1 rounded-sm inline-block">"동네가 살아야 경제가 삽니다"</p>
-                        </div>
-                    </div>
-                    <ul class="text-[1.05rem] text-dark font-medium space-y-2 ml-14">
-                        <li>· 전통시장·골목상권 활성화 특별예산 확보</li>
-                        <li>· 상인·주민 참여형 체감형 상권사업 운영</li>
-                        <li>· 독점 배달앱 맞설 공공배달앱 도입</li>
-                    </ul>
-                </div>
-
-                <!-- 4 -->
-                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-sky-100 hover:shadow-md transition-shadow">
-                    <div class="flex items-center gap-4 mb-4">
-                        <span class="text-5xl font-black text-[#e11d48] italic">4</span>
-                        <div>
-                            <h4 class="text-2xl font-black text-[#e11d48] leading-tight mb-1">주차·교통 생활불편 해결</h4>
-                            <p class="text-sm font-bold text-dark bg-rose-100 px-3 py-1 rounded-sm inline-block">"주차 스트레스는 줄이고, 보행권은 되찾고"</p>
-                        </div>
-                    </div>
-                    <ul class="text-[1.05rem] text-dark font-medium space-y-2 ml-14">
-                        <li>· 공영주차장 확충 및 공유주차제 활성화</li>
-                        <li>· 체증 심한 학교·시장 주변 교통 체계 개선</li>
-                        <li>· 유모차와 휠체어가 마음 편히 다니는 '무장애 보행로' 조성</li>
-                    </ul>
-                </div>
-
-                <!-- 5 -->
-                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-sky-100 hover:shadow-md transition-shadow">
-                    <div class="flex items-center gap-4 mb-4">
-                        <span class="text-5xl font-black text-[#0284c7] italic">5</span>
-                        <div>
-                            <h4 class="text-2xl font-black text-[#0284c7] leading-tight mb-1">침수·하수·도시안전 대책</h4>
-                            <p class="text-sm font-bold text-dark bg-sky-100 px-3 py-1 rounded-sm inline-block">"비 오면 불안한 동네 끝내겠습니다"</p>
-                        </div>
-                    </div>
-                    <ul class="text-[1.05rem] text-dark font-medium space-y-2 ml-14">
-                        <li>· 상습침수 골목 하수관로 전면 점검·교체</li>
-                        <li>· 폭우 취약한 재난 취약가구 우선 지원 확립</li>
-                        <li>· 장마 전 빗물받이·배수시설 정기 점검 의무화</li>
-                    </ul>
-                </div>
-
-                <!-- 6 -->
-                <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-sky-100 hover:shadow-md transition-shadow">
-                    <div class="flex items-center gap-4 mb-4">
-                        <span class="text-5xl font-black text-[#e11d48] italic">6</span>
-                        <div>
-                            <h4 class="text-2xl font-black text-[#e11d48] leading-tight mb-1">주민결정 정치제도화</h4>
-                            <p class="text-sm font-bold text-dark bg-rose-100 px-3 py-1 rounded-sm inline-block">"주민이 명령하면 구청이 실행합니다"</p>
-                        </div>
-                    </div>
-                    <ul class="text-[1.05rem] text-dark font-medium space-y-2 ml-14">
-                        <li>· 구 단위가 아닌 동별 생활불편 해결을 위한 예산 상설 배정</li>
-                        <li>· '연제구주민대회' 제도화 및 주민발안제 적극 도입</li>
-                        <li>· 관내 공공기관 유휴시설 야간·휴일 주민 개방 추진</li>
-                    </ul>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-</section>
-
-<!-- 6. 마지막 메시지 및 후원 (5번째 이미지 - activity35.png 로 교체) -->
-<section class="bg-graylight relative pt-0 pb-16">
-    <div class="w-full h-auto">
-        <!-- 사람이 잘리지 않게 교체 -->
-        <img src="./assets/activity35.png" class="w-full h-auto max-h-[600px] object-cover object-top block border-b-4 border-secondary" alt="진보정치 20년 사진">
-    </div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>일하는 구청장 연제사람 노정현</title>
+    <meta name="description" content="진보당 노정현 연제구청장 후보 홈페이지 - 일하는 구청장, 연제사람 노정현의 공약과 약력을 확인하세요.">
     
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 bg-white rounded-3xl shadow-2xl p-8 md:p-12 mt-4 md:mt-10 text-center border border-gray-100">
-        <h2 class="text-3xl md:text-5xl font-black text-[#1e3a8a] mb-6 leading-tight break-keep">
-            연산 8·9동 구의원 2명 중<br>
-            <span class="inline-block mt-2 px-1">한 명은</span> 
-            <span class="text-[#0284c7] border-b-4 border-[#0284c7] pb-1">진보구의원으로!</span>
-        </h2>
+    <!-- Open Graph / 카카오톡, 페이스북, 텔레그램 미리보기용 썸네일 설정 -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="일하는 구청장 연제사람 노정현">
+    <meta property="og:title" content="진보당 노정현 연제구청장 후보 홈페이지">
+    <meta property="og:description" content="진보당 노정현 연제구청장 후보 홈페이지 - 일하는 구청장, 연제사람 노정현의 공약과 약력을 확인하세요.">
+    <!-- 썸네일 이미지는 첨부해주신 통합 이미지(thumbnail.png)로 연결해 둡니다. -->
+    <meta property="og:image" content="https://busanjinbo.github.io/yeonje_njh/assets/thumbnail.jpg?v=2">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="진보당 노정현 연제구청장 후보 홈페이지">
+    <meta name="twitter:description" content="진보당 노정현 연제구청장 후보 홈페이지">
+    <meta name="twitter:image" content="https://busanjinbo.github.io/yeonje_njh/assets/thumbnail.jpg?v=2">
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSans.css" rel="stylesheet">
+    <!-- Google Fonts: Do Hyeon & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
         
-        <p class="text-xl md:text-2xl font-medium text-dark mb-10 break-keep">
-            공천만 받으면 당선되는 구의원은 주민 눈치를 보지 않습니다.<br>
-            구의원 <span class="text-red-600 font-bold underline decoration-4 decoration-red-600 underline-offset-4">해외연수</span>부터 <span class="text-red-600 font-bold underline decoration-4 decoration-red-600 underline-offset-4">중단</span>하고 4년 내내 주민을 향해 발로 뛰겠습니다.
-        </p>
-
-        <div class="bg-blue-50/50 rounded-xl p-6 md:p-10 flex flex-col md:flex-row items-center justify-center gap-10 mb-12 border border-blue-100">
-            <div class="text-center md:text-left">
-                <div class="text-6xl font-black text-[#1e3a8a] flex items-center justify-center md:justify-start gap-2 mb-2">
-                    <span class="text-red-600 text-7xl font-sans italic tracking-tighter">5</span>이정은
-                </div>
-                <h3 class="text-2xl font-black text-dark mb-2">2등까지 당선되는 구의원</h3>
-                <p class="text-graytext text-lg">주민후보 이정은을<br>주민의 힘으로 당선시켜주십시오</p>
-            </div>
+        <!-- Floating Quick Menu Container -->
+        <div class="quick-menu-container reveal" style="transition-delay: 0.5s;">
+            <!-- FAB Trigger -->
+            <button class="quick-menu-trigger" id="quick-menu-trigger">
+                <i class="fas fa-bars"></i>
+            </button>
             
-            <div class="w-full max-w-[320px] flex justify-center">
-                <img src="./assets/activity36.png" alt="구의원선거 투표용지" class="w-full h-auto object-contain drop-shadow-md">
-            </div>
-        </div>
-
-        <div class="text-left mt-10">
-            <div class="mb-6 flex flex-col gap-2">
-                <h3 class="text-2xl font-black text-[#1e3a8a]">오직, 주민에게만 빚지고 싶습니다</h3>
-                <span class="text-gray-500 font-medium text-[0.95rem]">*10만원까지는 연말정산 시 전액 돌려받습니다.</span>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-lg">
-                <div class="flex items-center gap-4">
-                    <span class="bg-[#8ecae6] text-white px-4 py-1 rounded font-bold whitespace-nowrap w-24 text-center">후원계좌</span>
-                    <div>
-                        <div class="font-black text-2xl text-dark tracking-tight">부산은행 101-2095-7369-08</div>
-                        <div class="text-graytext text-base mt-1">예금주 : 이정은(연제구의원선거)</div>
+            <!-- Menu Panel -->
+            <div class="quick-menu-panel" id="quick-menu-panel">
+                <button class="quick-menu-btn nav-link" data-target="view-home">
+                    <i class="fas fa-home"></i>
+                    <span>홈으로</span>
+                </button>
+                <button class="quick-menu-btn nav-link" data-target="view-about">
+                    <i class="fas fa-user-tie"></i>
+                    <span>걸어온길</span>
+                </button>
+                <div class="quick-menu-group" id="quick-pledge-group">
+                    <button class="quick-menu-btn" id="quick-pledge-btn" style="padding-bottom: 0.5rem; gap: 0.15rem;">
+                        <div style="display: flex; align-items: center; justify-content: center; height: 1.2rem;">
+                            <i class="fas fa-bullhorn" style="font-size: 1.15rem;"></i>
+                        </div>
+                        <span>공약</span>
+                        <i class="fas fa-chevron-left" style="font-size: 0.6rem; color: #94a3b8; margin-top: 0.15rem;"></i>
+                    </button>
+                    <div class="quick-sub">
+                        <div class="quick-sub-btn nav-link" data-target="view-pledge4">좋은 일자리</div>
+                        <div class="quick-sub-btn nav-link" data-target="view-pledge5">살고싶은 도시</div>
+                        <div class="quick-sub-btn nav-link" data-target="view-pledge1">동백배달</div>
+                        <div class="quick-sub-btn nav-link" data-target="view-pledge2">공공은행</div>
+                        <div class="quick-sub-btn nav-link" data-target="view-pledge3">스쿨버스</div>
                     </div>
                 </div>
-                <div class="flex items-center gap-4 mt-4 md:mt-0">
-                    <span class="bg-[#8ecae6] text-white px-4 py-1 rounded font-bold whitespace-nowrap w-24 text-center">후원문의</span>
-                    <div class="font-black text-2xl text-dark">010-9476-6924</div>
-                </div>
-            </div>
-            
-            <div class="mt-8 text-center">
-                <button onclick="copyAccount()" class="bg-[#1e3a8a] text-white font-bold py-4 px-12 rounded-full shadow-lg hover:bg-[#152861] transition-colors text-2xl">
-                    이정은 후원하기
+                <button class="quick-menu-btn nav-link" data-target="view-location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>오시는길</span>
                 </button>
             </div>
-    </div>
-</section>
-<!-- 6. 푸터 -->
-
-<footer class="bg-dark text-white pt-10 pb-8 mt-auto">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-        <div class="text-gray-400 font-light text-sm md:text-base mb-6 space-y-2">
-            <p>진보당 이정은 연산8·9동 구의원 후보</p>
-            <p>전화: <strong class="text-white cursor-pointer hover:text-secondary transition-colors" onclick="copyPhoneNumber(this.innerText)" title="클릭하여 번호 복사">010-9476-6924</strong></p>
-            <p>선거사무소: 연제구 과정로 202, 2층</p>
         </div>
-        <div class="text-xs text-gray-500 font-light mt-8">
-            &copy;2026 이정은 선거사무소. All rights reserved.
+
+        <!-- Top Navigation -->
+        <nav class="top-nav">
+            <div class="nav-container">
+                <a href="#" data-target="view-home" class="nav-logo">
+                    <!-- Nav Logo Fallback Text -->
+                    <img src="assets/main_tytle.png" alt="일하는 구청장" class="nav-logo-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 120 40\'><text x=\'0\' y=\'25\' font-size=\'14\' font-weight=\'bold\' fill=\'%231e293b\' style=\'pointer-events:none; user-select:none;\'>일하는 구청장</text></svg>'">
+                    <span class="nav-candidate-name">노정현</span>
+                </a>
+                <div class="nav-menu">
+                    <a href="#" data-target="view-about" class="nav-link">걸어온 길</a>
+                    <div class="nav-dropdown">
+                        <span class="nav-link nav-dropdown-toggle">공약 <i class="fas fa-chevron-down nav-dropdown-icon"></i></span>
+                        <div class="nav-dropdown-content">
+                            <a href="#" data-target="view-pledge4" class="nav-link">좋은 일자리</a>
+                            <a href="#" data-target="view-pledge5" class="nav-link">살고싶은 도시 연제구</a>
+                            <a href="#" data-target="view-pledge1" class="nav-link">공공배달앱</a>
+                            <a href="#" data-target="view-pledge2" class="nav-link">공공은행</a>
+                            <a href="#" data-target="view-pledge3" class="nav-link">워킹스쿨버스</a>
+                        </div>
+                    </div>
+                    <a href="#" data-target="view-location" class="nav-link">오시는 길</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content for SPA -->
+        <main id="main-content">
+        
+        <!-- VIEW: HOME (SECTION 1) -->
+        <div id="view-home" class="view-section active-section">
+            <!-- Hero Section -->
+            <header class="hero" id="home">
+            <!-- 시네마틱 팬다운 배경 -->
+            <div class="hero-bg-anim"></div>
+            
+            <!-- 절대 좌표 기반 레이어 컨테이너 -->
+            <div class="hero-layer-container">
+                <!-- 상단 타이틀 -->
+                <img src="assets/hero_title.png" alt="일하는 구청장" class="hl-title">
+                
+                <!-- 하단 서브타이틀 및 이름 -->
+                <div class="hl-subtitle-wrap">
+                    <img src="assets/hero_subtitle.png" alt="연제사람" class="hl-sub">
+                    <img src="assets/hero_name.png" alt="노정현" class="hl-name">
+                </div>
+                
+                <!-- 메인 인물 사진 -->
+                <img src="assets/hero.png" alt="노정현 후보" class="hl-portrait">
+            </div>
+            </header>
+
+            <!-- Donation Area (Moved to Main Section) -->
+            <div class="hero-support reveal">
+                <div class="bank-info" style="flex-direction: column; padding: 2.5rem 1.5rem; max-width: 600px;">
+                    <h3 style="font-size: 1.4rem; color: #0284c7; margin-bottom: 0.5rem; font-weight: 800; text-align: center;"><i class="fas fa-heart" style="color: #ef4444; margin-right: 0.5rem;"></i>노정현의 힘이 되어주십시오.</h3>
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.8rem; margin-bottom: 0.5rem; width: 100%;">
+                        <span class="bank-name">부산은행</span>
+                        <strong class="account-number" id="account-number">113-2020-3080-07</strong>
+                        <span style="font-size: 0.95rem; color: #64748b; margin-top: 0.3rem; display: block; width: 100%; text-align: center;">예금주 : 노정현후원회(연제구청장선거)</span>
+                    </div>
+                    <div style="width: 100%; display: flex; flex-direction: column; align-items: center; gap: 0.8rem; margin-top: 0.5rem;">
+                        <button class="btn-donate" id="copy-btn" style="max-width: 360px; margin: 0;">
+                            후원하기 <i class="fas fa-copy"></i>
+                        </button>
+                        <button class="btn-donate copy-phone" style="max-width: 360px; margin: 0; font-size: 1.15rem; letter-spacing: -0.5px; white-space: nowrap;">
+                            후원문의 : 010-5840-3422 <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="support-accordion" style="width: 100%; background: transparent; margin-top: 1.5rem;">
+                        <button class="accordion-btn" id="accordion-btn" style="color: #1e293b; font-weight: 700; border-top: 1px dashed #e2e8f0; padding-top: 1.5rem;">후원 안내 보기 <i class="fas fa-chevron-down"></i></button>
+                        <div class="accordion-content" id="accordion-content">
+                            <ul>
+                                <li>10만원까지 전액세액공제 (연말정산시 전액돌려 받음)</li>
+                                <li>10만원 초과분은 연말정산시 15% 세액공제 됩니다.</li>
+                                <li>1인당 연간 최대 500만원까지 후원이 가능합니다.</li>
+                                <li>법인, 단체, 외국인, 교원, 공무원은 후원이 불가합니다.</li>
+                                <li>영수증 발급 : 이름/ 주민번호/ 전화번호/ 주소/ 후원금액/ 입금일 <strong class="copy-phone" id="copy-phone" style="cursor: pointer; text-decoration: underline; text-underline-offset: 3px;">010-5840-3422</strong>로 문자보내주세요</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Representative Bio Link Button -->
+            <div class="hero-profile-link reveal" style="text-align: center; margin-top: 1.5rem; margin-bottom: 2rem; display: flex; justify-content: center; padding: 0 1.5rem;">
+                <a href="#view-about" class="intro-btn" style="display: flex; align-items: center; justify-content: space-between; background-color: #0284c7; padding: 0.8rem 1.5rem 0.8rem 0.8rem; border-radius: 50px; border: none; box-shadow: 0 8px 25px rgba(2, 132, 199, 0.3); text-decoration: none; width: 100%; max-width: 400px; transition: transform 0.2s;">
+                    <div style="display: flex; align-items: center; gap: 1.2rem;">
+                        <div style="width: 75px; height: 75px; border-radius: 50%; overflow: hidden; flex-shrink: 0; border: 2px solid #fff; background: #e0f2fe;">
+                            <img src="assets/hero.png" alt="노정현" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 10%;">
+                        </div>
+                        <span style="font-size: 1.35rem; color: #fff; font-weight: 800; text-align: left; line-height: 1.25;">노정현을<br>소개합니다</span>
+                    </div>
+                    <i class="fas fa-chevron-right" style="color: #fff; font-size: 1.4rem; margin-left: 0.5rem;"></i>
+                </a>
+            </div>
+
+            <!-- Core Pledges Section (Sky Blue Background) -->
+            <div class="home-pledge-section">
+                <!-- Core Pledges Title -->
+                <div class="home-pledge-header reveal">
+                    <h2 class="home-pledge-title">노정현의 공공도시 연제</h2>
+                </div>
+                
+                <!-- Core Pledges List (Cards) -->
+                <div class="hero-pledge-list">
+                    <!-- Job Section -->
+                    <a href="#" data-target="view-pledge4" class="hz-pledge-card hero-pledge-item reveal">
+                        <div class="hz-pledge-img-wrap image-layer">
+                            <img src="assets/icon_job.png" alt="좋은 일자리" style="mix-blend-mode: multiply;">
+                        </div>
+                        <div class="hz-pledge-text">
+                            <span class="pledge-name">좋은 일자리</span>
+                            <i class="fas fa-chevron-right pledge-arrow"></i>
+                        </div>
+                    </a>
+
+                    <!-- City Section -->
+                    <a href="#" data-target="view-pledge5" class="hz-pledge-card hero-pledge-item reveal">
+                        <div class="hz-pledge-img-wrap image-layer">
+                            <img src="assets/icon_city.png" alt="살고싶은 도시" style="mix-blend-mode: multiply;">
+                        </div>
+                        <div class="hz-pledge-text">
+                            <span class="pledge-name">살고싶은 도시</span>
+                            <i class="fas fa-chevron-right pledge-arrow"></i>
+                        </div>
+                    </a>
+
+                    <!-- Delivery Section -->
+                    <a href="#" data-target="view-pledge1" class="hz-pledge-card hero-pledge-item reveal">
+                        <div class="hz-pledge-img-wrap image-layer">
+                            <img src="assets/delivery.png" alt="공공배달앱">
+                        </div>
+                        <div class="hz-pledge-text">
+                            <span class="pledge-name">공공배달앱</span>
+                            <i class="fas fa-chevron-right pledge-arrow"></i>
+                        </div>
+                    </a>
+                    
+                    <!-- Bank Section -->
+                    <a href="#" data-target="view-pledge2" class="hz-pledge-card hero-pledge-item reveal">
+                        <div class="hz-pledge-img-wrap image-layer">
+                            <img src="assets/bank.png" alt="공공은행">
+                        </div>
+                        <div class="hz-pledge-text">
+                            <span class="pledge-name">공공은행</span>
+                            <i class="fas fa-chevron-right pledge-arrow"></i>
+                        </div>
+                    </a>
+
+                    <!-- Walking Section -->
+                    <a href="#" data-target="view-pledge3" class="hz-pledge-card hero-pledge-item reveal">
+                        <div class="hz-pledge-img-wrap image-layer">
+                            <img src="assets/schoolbus.png" alt="워킹스쿨버스">
+                        </div>
+                        <div class="hz-pledge-text">
+                            <span class="pledge-name">워킹스쿨버스</span>
+                            <i class="fas fa-chevron-right pledge-arrow"></i>
+                        </div>
+                    </a>
+                </div>
+            </div> <!-- End of home-pledge-section -->
+        </div> <!-- End of view-home -->
+
+        <!-- VIEW: ABOUT (SECTION 2) -->
+        <div id="view-about" class="view-section">
+                <!-- 1번 이미지 (삭제됨) -->
+
+            <section class="section about-section" style="padding-top: 0;">
+                
+                <!-- YouTube Video Container -->
+                <div class="video-responsive-container reveal" id="youtube-container-box" data-src="https://www.youtube.com/embed/PY6epvilFz8?rel=0&vq=hd1080">
+                    <!-- Iframe injected via JS -->
+                </div>
+
+                <div class="about-content-container reveal" style="max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 3rem 1.5rem;">
+                    
+                    <!-- 2번 이미지 대체: 후보약력 구조화 -->
+                    <div class="bio-section-designed reveal">
+                        <div class="bio-header-container">
+                            <h2 class="bio-main-title">일하는 대통령 시대,<br><span class="bio-highlight">일하는 구청장 노정현</span></h2>
+                            <div class="bio-list-box">
+                                <h3 class="bio-list-title">노정현이 걸어온 길</h3>
+                                <ul class="profile-txt-list" style="box-shadow: none; border: none; padding: 0; background: transparent;">
+                                    <li>22대 국회의원선거 민주당·진보당 단일후보</li>
+                                    <li>6대, 7대 연제구의회 의원</li>
+                                    <li>토곡은빛노인학교 교장 (전)</li>
+                                    <li>진보당부산시당위원장</li>
+                                    <li>연제주민대회 상임조직위원장</li>
+                                    <li>가계부채119 부산 상담센터장</li>
+                                    <li>1급 사회복지사</li>
+                                    <div style="height: 0.5rem;"></div>
+                                    <li>동명초·연산중·양정고 졸업</li>
+                                    <li>부산대 상과대학 경영학부 (졸)</li>
+                                    <li>4남매의 아빠</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bio-content-flex">
+                            <!-- Photo Cards -->
+                            <div class="bio-photo-grid">
+                                <div class="bio-photo-card"><img src="assets/photo_toilet.png" alt="화장실 건립" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;"><div class="bio-photo-label">화장실 건립</div></div>
+                                <div class="bio-photo-card"><img src="assets/photo_schoolbus.png" alt="워킹스쿨버스" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;"><div class="bio-photo-label">워킹스쿨버스</div></div>
+                                <div class="bio-photo-card"><img src="assets/photo_knife.png" alt="칼잡이봉사" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;"><div class="bio-photo-label">칼잡이봉사</div></div>
+                                <div class="bio-photo-card" style="display: none;"><img src="assets/photo_barefoot.png" alt="맨발황토길 제안" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block;"><div class="bio-photo-label">맨발황토길 제안</div></div>
+                            </div>
+
+                            <!-- Text Descriptions -->
+                            <div class="bio-desc-wrap">
+                                <div class="bio-desc-item">
+                                    <h4 class="bio-desc-title"><span class="blue-dot"></span> 부산이 처음 만나는 '일하는 구청장'</h4>
+                                    <p class="bio-desc-quote">“찾아가는 청장, 듣는 청장, 끝까지 일하는 청장”</p>
+                                    <p class="bio-desc-text">현상 유지에 급급한 관리형 구청장은 누가 해도 똑같습니다. "전례가 없다"는 핑계 뒤에 숨지 않겠습니다. 공무원 조직의 유능함을 창의적 혁신으로 이끌겠습니다. '행정이 내 삶을 이토록 바꿀 수 있다'는 놀라운 변화를 보여드리겠습니다.<br><br>성남시 이재명, 서울성동구 정원오, 울산동구 김종훈이 쓴 혁신의 역사. 부산 연제구에서 노정현이 이어가겠습니다.</p>
+                                </div>
+                                <div class="bio-desc-item">
+                                    <h4 class="bio-desc-title"><span class="blue-dot"></span> 현장 행정, 디테일 구청장</h4>
+                                    <p class="bio-desc-quote">노정현만큼 주민을 많이 만난 후보는 없다고 자부합니다</p>
+                                    <p class="bio-desc-text">지난 4년간 연제주민대회 조직위원장으로서 골목을 누비며 수만 명의 주민을 만나 수천 개의 정책을 꼼꼼히 모은 진짜 실력을 보여드리겠습니다.<br><br>저의 공약은 선거를 위해 급조된 것이 아닙니다. 4년간 주민들께서 직접 주신 소중한 의견을 바탕으로, 전국의 우수 사례를 철저히 조사해 만든 '준비된 약속'입니다.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-flex-wrap" style="justify-content: center;">
+                        <!-- Left Side: Slogan Image and Interactive Hand Link -->
+                        <div class="about-left-panel" style="flex: 1; max-width: 300px;">
+                            <!-- Slogan Graphic -->
+                            <img src="assets/hand.png" alt="당신을 위해 노정현의 손을 잡아주세요" class="img-fluid" style="max-width: 260px; margin-bottom: 0.5rem;">
+                            
+                            <!-- Interactive Hand Holding Link -->
+                            <a href="https://jinboparty.com/pages/?p=34&u=W&step=1" target="_blank" class="hand-link-box">
+                                <div class="hand-animation-wrapper">
+                                    <!-- 평상시 내미는 손 -->
+                                    <img src="assets/hand_1.png" alt="손 내미기" class="hand-img hand-default">
+                                    <!-- 마우스 오버 시 잡는 손 -->
+                                    <img src="assets/hand_2.png" alt="손 잡기" class="hand-img hand-hover">
+                                </div>
+                                <div class="hand-link-text">노정현 손잡기</div>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- 5번 이미지 대체: 후보 소개 엔딩 -->
+                    <div class="end-bio-section reveal" style="margin-top: 3rem;">
+                        <div class="end-bio-text" style="text-align: left; line-height: 1.8; word-break: keep-all;">
+                            <p>부산에서 유일하게 민주·진보 단일진 보당후보로 나섰던 지난 22대 총선.<br>당선자 전재수후보를 제외한 낙선한 부산 17개 지역구 중 득표율 7위를 기록하며 아깝게 석패했습니다.</p>
+                            <p>이번 지방선거는 다릅니다. 극우화된 정치에 실망한 합리적 보수 유권자들도 노정현을 지지합니다.</p>
+                            <p>저 노정현은 민주·진보 세력의 단결을 위해 단 한 번도 유불리를 따지지 않았습니다. <strong class="text-blue">“반드시 단일화하여 승리하라”는 주민의 준엄한 명령</strong>을 흔들림 없이 받들겠습니다.</p>
+                            <div class="end-bio-signature" style="font-weight: 900; background: transparent; padding: 0; box-shadow: none; border-radius: 0; margin-top: 0.5rem; color: #1e293b;">일하는 연제구청장 후보, 노정현</div>
+                        </div>
+                        <div class="end-bio-arches">
+                            <div class="arch-photo"><img src="assets/photo_arch1.png" alt="유세 사진 1" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 200px 200px 0 0;"></div>
+                            <div class="arch-photo middle"><img src="assets/photo_arch2.png" alt="유세 사진 2" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 200px 200px 0 0;"></div>
+                            <div class="arch-photo"><img src="assets/photo_arch3.png" alt="유세 사진 3" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 200px 200px 0 0;"></div>
+                        </div>
+                    </div>
+
+                    <!-- 후원 정보 영역 -->
+                    <div class="donation-box reveal" style="margin-top: 3rem; background: #fff; padding: 2rem 1.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border: 2px solid #e0f2fe; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        <h4 style="font-size: 1.35rem; color: #0284c7; margin-bottom: 0.8rem; font-weight: 800;"><i class="fas fa-heart" style="color: #ef4444; margin-right: 0.5rem;"></i>노정현의 힘이 되어주십시오.</h4>
+                        <div class="bank-account" style="font-size: 1.15rem; color: #1e293b; margin-bottom: 0.8rem; background: #f8fafc; padding: 0.8rem; border-radius: 8px;">
+                            부산은행 <strong style="color: #0369a1; font-size: 1.4rem; letter-spacing: 1px;" id="copy-account-target">113-2020-3080-07</strong><br>
+                            <span style="font-size: 1rem; color: #64748b; margin-top: 4px; display: inline-block;">예금주 : 노정현후원회(연제구청장선거)</span>
+                        </div>
+                        
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                            <button class="btn-donate copy-account-btn" data-clipboard-target="#copy-account-target" style="width: 100%; max-width: 360px; padding: 0.8rem; background-color: #0284c7; color: white; border: none; border-radius: 30px; font-size: 1.15rem; font-weight: 700; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 0.5rem; transition: background-color 0.2s; margin-top: 0;">
+                                후원계좌 복사하기 <i class="fas fa-copy"></i>
+                            </button>
+                            <a href="tel:010-5840-3422" class="btn-donate" style="width: 100%; max-width: 360px; padding: 0.8rem; background-color: #0f172a; color: white; border: none; border-radius: 30px; font-size: 1.15rem; font-weight: 700; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 0.5rem; text-decoration: none; margin-top: 0;">
+                                후원문의 : 010-5840-3422
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div> <!-- End of view-about -->
+
+        <!-- VIEW: PLEDGE 1 -->
+        <div id="view-pledge1" class="view-section">
+            <div class="pledge-hero-wide reveal">
+                <img src="assets/del_mail.png" alt="공공배달앱">
+            </div>
+            
+            <div class="pledge-detail-container">
+                <div class="pledge-text-chunk reveal">
+                    <h3 class="pledge-title-large">언제까지 <strong>배민·쿠팡</strong>의<br><strong>'수수료 노예'</strong>로 살아야 합니까?</h3>
+                    <p class="pledge-body-text">
+                        배달앱은 특별한 기술도 아닙니다. 그저 먼저 시작했다는 이유만으로 우리 동네 사장님의 땀방울과 부산시민의 소중한 돈이 매달 수천억 원씩 수도권·해외 자본으로 유출되고 있습니다.<br><br>
+                        서울은 신한은행-땡겨요 민관합동 배달앱이 점유율 10%달성 중입니다. 부산은 불안정한 민관 합동 앱을 넘어 완전 공공배달앱으로 점유율 70% 기적을 향해 달릴 수 있습니다.<br><br>
+                        불가능한 일이 아니라 부산시가 무능하고 무관심할 뿐입니다.
+                    </p>
+                </div>
+
+                <!-- Benefits Chunk -->
+                <div class="pledge-benefits-chunk">
+                    <div class="pledge-ch-img reveal">
+                        <img src="assets/del_ch.png" alt="동백배달 경쟁력">
+                    </div>
+                    <div class="pledge-text-inner reveal">
+                        <div class="pledge-highlight-box combined-box">
+                            <h4 class="benefits-main-title-inside">동백배달 압승!</h4>
+                            <p class="benefits-sub-text">소비자-자영업자-라이더 상생으로 부산경제 살리는 앱, 안 쓸 이유가 있겠습니까</p>
+                        </div>
+                    </div>
+
+                    <!-- Consumer Animation -->
+                    <div class="pledge-single-img reveal">
+                        <img src="assets/del_con.png" class="anim-base" alt="소비자 혜택">
+                    </div>
+                    
+                    <!-- Store Animation -->
+                    <div class="pledge-single-img reveal">
+                        <img src="assets/del_store.png" class="anim-base" alt="가맹점 혜택">
+                    </div>
+                    <div class="pledge-text-inner margin-bottom-large reveal">
+                        <ul class="pledge-hotpink-list">
+                            <li><span class="hotpink-badge">추가혜택1</span> 익일 정산 시스템 (민간 앱 정산은 3~7일)</li>
+                            <li><span class="hotpink-badge">추가혜택2</span> 방문포장 전액무료</li>
+                            <li><span class="hotpink-badge">추가혜택3</span> 마케팅자율권 : 민간앱 알고리즘에 종속되지 않고, 단골손님 쿠폰 발행권한 등을 사장님께</li>
+                        </ul>
+                    </div>
+
+                    <!-- Rider Animation -->
+                    <div class="pledge-single-img reveal">
+                        <img src="assets/del_rider.png" class="anim-base" alt="라이더 혜택">
+                    </div>
+                    <div class="pledge-text-inner reveal">
+                        <p class="pledge-rider-txt">
+                            <span class="purple-badge">공공라이더 시스템 구축</span> 신속·안전 배달망 구축으로 지역대표 좋은 일자리로 육성
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Final Bullets -->
+                <div class="pledge-text-wrap pledge-final-box reveal">
+                    <ul class="pledge-bullet-list">
+                        <li>투입예산은 세금낭비가 아니라 부산 경제 부활을 마중물!</li>
+                        <li>장차로 부산공공은행 설립으로 수익기반 완벽한 재정자립 가능 <br>⇒ 진보당이 제안하는 궁극적 모델</li>
+                    </ul>
+                    <p class="pledge-small-ref">
+                        진보당 윤종오 의원(울산 북구)은 플랫폼 독점 규제와 자영업자 보호를 위해 ‘온라인 플랫폼법’을 발의(25.07)했습니다. 그런데 쿠팡·배민의 로비로 미국(트럼프)이 공개 반대하여 법안 통과가 불투명해졌습니다. 그렇다면 공공배달앱을 성공시켜 시장논리로 악질플랫폼을 직접 퇴출시킵시다.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW: PLEDGE 2 -->
+        <div id="view-pledge2" class="view-section">
+            
+            <!-- 화면 양끝까지 꽉 차는 동백배달식 구조 (여백 제거로 이미지 크게) -->
+            <div class="reveal" style="background-color: #d1ecf9; width: 100%; text-align: center; margin-bottom: 2rem;">
+                <img src="assets/bank_top.png" alt="부산경제살리기 프로젝트 2 공공은행 도입 특별법 제정" style="width: 100%; max-width: 1000px; display: inline-block;">
+            </div>
+
+            <section class="section" style="padding-top: 0;">
+                <div class="pledge-detail-container">
+
+                    <!-- Problem 1: Current Banking Situation -->
+                    <div class="bank-text-chunk reveal">
+                        
+                        <!-- 텍스트와 예산상자 가로 배치 -->
+                        <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 1.5rem;">
+                            
+                            <p class="bank-body-text" style="flex: 1; min-width: 280px; margin-bottom: 0;">
+                                <strong>BNK 부산은행</strong>은 부산시와 16개 구군 예산을 맡아 운용하는 시(구)금고입니다. 막대한 돈을 맡아 <strong class="text-blue">유무형의 수익을 내면서도 겨우 0.x%대의 쥐꼬리 만한 이자를 줍니다.</strong>
+                            </p>
+                            
+                            <div class="bank-budget-box small-budget" style="margin: 0; flex-shrink: 0;">
+                                <div class="budget-item">
+                                    <span class="budget-label">부산시 예산</span>
+                                    <span class="budget-value" style="margin-left:auto;">약 17조 원</span>
+                                </div>
+                                <div class="budget-item">
+                                    <span class="budget-label">연제구 예산</span>
+                                    <span class="budget-value" style="margin-left:auto;">약 6천억 원</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <p class="bank-body-text">
+                            게다가 이름만 부산은행이지 외국인 자본이 46%, 대주주는 롯데입니다.<br>
+                            <strong class="text-blue">수익은 고스란히 외국과 서울로 빠져나갑니다.</strong>
+                        </p>
+
+                        <p class="bank-body-text highlight-bg">
+                            지자체가 직접 자기예산(기금포함)을 자본금으로 <strong class="text-blue">공공은행을 설립하면 수익은 모두 부산시민의 것이 됩니다.</strong> 아울러 부산의 돈이 서울로 빠져나가지 않고 부산안에서 돌면서 <strong class="text-blue">부산의 경제를 살리고 일자리를 만들어 냅니다.</strong>
+                        </p>
+                    </div>
+
+                    <!-- Moved Campaign Text -->
+                    <div class="bank-campaign-section reveal" style="margin-bottom: 2rem;">
+                        <div class="campaign-text">
+                            <p class="campaign-question">이 좋은 공공은행 왜 안하냐구요?</p>
+                            <p class="campaign-answer">은행법이 막고 있기 때문입니다</p>
+                            
+                            <ul class="campaign-laws">
+                                <li><strong>21대 국회</strong> 진보당 강성희 의원 발의 <span class="text-sm">(임기 만료 폐기)</span></li>
+                                <li><strong>22대 국회</strong> 민주당 송재봉 의원 발의 <span class="text-sm">(정무위원회 검토 중)</span></li>
+                            </ul>
+
+                            <p class="campaign-footer-txt">
+                                <strong class="text-blue">2026지방선거는 부산소멸을 막을 마지막 골든타임입니다</strong><br>
+                                특별법으로 부산공공은행, 00구/군 공공은행을 설립해 공공성과 일자리로 부산경제를 살려야 합니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Problem 2: The Core Issue -->
+                    <div class="bank-text-chunk reveal">
+                        <h4 class="bank-sub-title">공공성과 일자리로 부산경제 얼마든지 살릴 수 있습니다</h4>
+                        <h3 class="bank-huge-title">문제는 돈입니다</h3>
+                        
+                        <div class="bank-steps-box">
+                            <div class="bank-step light">세금으로는 한계가 있습니다</div>
+                            <i class="fas fa-arrow-down step-arrow"></i>
+                            <div class="bank-step toggle-blue">공공은행이 정답입니다</div>
+                            <i class="fas fa-arrow-down step-arrow"></i>
+                            <div class="bank-step light">시중은행 배불리기만 중단하면 됩니다</div>
+                        </div>
+
+                        <div class="bank-arrow-flow">
+                            <div class="flow-box">
+                                부산의 돈이 수도권으로<br>빨려들어가는 걸 막아야합니다
+                            </div>
+                            <i class="fas fa-chevron-right flow-arrow"></i>
+                            <div class="flow-box dark-blue">
+                                공공은행만 있으면 부산의 돈이<br>부산에서 순환하면서 부산경제를 살찌웁니다.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Diagram Section -->
+                    <div class="bank-diagram-section reveal" style="text-align: center;">
+                        <img src="assets/bank_flow.png" alt="지역 공공은행 역할" class="bank-img-fluid bank-flow-vertical" style="margin-bottom: 1rem;">
+                        
+                        <!-- 지방자치단체에서 정책 집행으로 이어지는 흐름 -->
+                        <div class="flow-to-benefits-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                            <span class="arrow-text">지방자치단체의 정책 집행</span>
+                        </div>
+                    </div>
+
+                    <!-- Benefits Lists -->
+                    <div class="bank-benefits-section reveal">
+                        <div class="bank-benefit-card">
+                            <h5 class="benefit-card-title">공적금융지원</h5>
+                            <ul>
+                                <li>부산시민, 소상공인, 부산중소기업 <strong>저리대출</strong></li>
+                            </ul>
+                        </div>
+                        <div class="bank-benefit-card">
+                            <h5 class="benefit-card-title">재정부담 없는 공공정책</h5>
+                            <ul>
+                                <li>해상풍력 등 공공에너지-해양공공신산업, 공공은행, 공공배달 등 공공 정규직 <strong>청년일자리 대폭 창출</strong></li>
+                                <li><strong>청년</strong>창업 무이자 대출론 지원</li>
+                                <li>시니어 일자리 대폭확대</li>
+                                <li>경력단절기간 여성 공공일자리 (워킹스쿨버스,상담,교육)</li>
+                                <li>무료마을공공버스 (연제구 전지역을 역세권으로)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Success Cases -->
+                    <div class="bank-cases-section reveal">
+                        <h4 class="cases-title">
+                            이윤대신 지역살리기를 목적으로<br>
+                            <strong>지자체가 설립한</strong> 공공은행 성공사례
+                        </h4>
+                        <img src="assets/bank_cases.png" alt="공공은행 성공사례" class="bank-img-fluid bank-cases-vertical">
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <!-- VIEW: PLEDGE 3 -->
+        <div id="view-pledge3" class="view-section">
+            
+            <!-- 화면 양끝까지 꽉 차는 전면 이미지 구조 -->
+            <div class="reveal" style="background-color: #d1ecf9; width: 100%; text-align: center; margin-bottom: 2rem;">
+                <img src="assets/wsb_top.png" alt="아이들의 등하굣길을 책임지는 워킹스쿨버스" style="width: 100%; max-width: 1000px; display: inline-block;">
+            </div>
+
+            <section class="section" style="padding-top: 0;">
+                <div class="pledge-detail-container wsb-container">
+
+                    <!-- What is WSB? -->
+                    <div class="wsb-qa-box reveal">
+                        <div class="wsb-q">🚌 워킹스쿨버스가 무엇인가요?</div>
+                        <ul class="wsb-a-list">
+                            <li><strong class="wsb-highlight">걸어 다니는 스쿨버스 :</strong> 교통안전지도사가 초등 1~3학년 학생들의 통학길을 직접 동행합니다.</li>
+                            <li><strong class="wsb-highlight">안심 공공서비스 :</strong> 교통사고는 물론 각종 범죄로부터 어린이들 보호</li>
+                        </ul>
+                    </div>
+
+                    <!-- Introduction Feasibility -->
+                    <div class="wsb-qa-box reveal">
+                        <div class="wsb-q">🚩 도입가능성과 전국적인 현황</div>
+                        <ul class="wsb-a-list">
+                            <li><strong class="wsb-highlight">서울 성동구, 광진구, 경기 부천시 등 수도권은 활발히 시행중이며 확대 추세</strong></li>
+                            <li><strong class="wsb-highlight">이재명 정부 :</strong> '워킹스쿨버스'를 전국, 전학년으로 확대한다는 계획 발표.<span style="font-size: 0.8rem; letter-spacing: -0.5px;">(2025년 하반기)</span><br>그러나 국비와 시비 및 구비 매칭이 중요한 과제인 만큼 조례를 도입하는 적극적인 지자체부터 시행될 예정.</li>
+                        </ul>
+                        <div class="wsb-key-point">
+                            <strong>2026년 지방선거를 계기로 구의회와 구청이 나서면 바로 시행할 수 있는 절호의 기회</strong>
+                        </div>
+                    </div>
+
+                    <!-- Why not Busan? -->
+                    <div class="wsb-qa-box reveal">
+                        <div class="wsb-q">🤔 워킹스쿨버스, 부산은 왜 아직일까요?</div>
+                        <ul class="wsb-a-list">
+                            <li><strong>조례부재 :</strong> 부산시와 각 구청, 구의회의 무관심과 무능</li>
+                            <li><strong>예산 편성 후순위 :</strong> 조례가 제정된 일부 구도 예산편성 없음</li>
+                        </ul>
+                    </div>
+
+                    <!-- Unified Alert & Table Section -->
+                    <div class="wsb-united-section reveal">
+                        
+                        <!-- Blue Alert Box -->
+                        <div class="wsb-alert-box">
+                            <div class="wsb-alert-title">
+                                부산 학부모들의 요구에도 묵묵부답인 구청과 구의회
+                            </div>
+                            <div class="wsb-alert-text">
+                                진보당은 2025년 하반기 각 구별 주민대회 조직위원회와 함께 수천명의 주민의 요구를 모아 조례제정과 예산 편성을 요구하였으나 구청과 구의회는 묵묵부답
+                            </div>
+                        </div>
+
+                        <!-- Current Status Table -->
+                        <div class="wsb-table-wrap">
+                            <div class="wsb-table-title">
+                                구별 주민대회 '워킹스쿨버스' 요구안 선정결과 및 조례 현황
+                            </div>
+                            <div class="wsb-table-responsive">
+                                <table class="wsb-status-table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>동래구</th>
+                                            <th>사하구</th>
+                                            <th>연제구</th>
+                                            <th>영도구</th>
+                                            <th>해운대구</th>
+                                            <th>남구</th>
+                                            <th colspan="2">제정 촉구 서명전달</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th style="background-color: #e0f2fe; color: #0f172a; font-weight: 700;">주민요구안</th>
+                                            <td>선정</td>
+                                            <td>선정</td>
+                                            <td>선정</td>
+                                            <td>선정</td>
+                                            <td>선정</td>
+                                            <td>선정</td>
+                                            <td style="background-color: #e0f2fe; color: #0f172a; font-weight: 700;">동구</td>
+                                            <td style="background-color: #e0f2fe; color: #0f172a; font-weight: 700;">사상</td>
+                                        </tr>
+                                        <tr>
+                                            <th style="background-color: #e0f2fe; color: #0f172a; font-weight: 700;">참가자 수</th>
+                                            <td>3,738</td>
+                                            <td>7,141</td>
+                                            <td>5,600</td>
+                                            <td>4,544</td>
+                                            <td>5,076</td>
+                                            <td>4,055</td>
+                                            <td>123</td>
+                                            <td>100</td>
+                                        </tr>
+                                        <tr class="red-border-row top">
+                                            <th style="background-color: #1e3a8a; color: white; font-weight: 700;">조례제정</th>
+                                            <td class="text-red font-bold">X</td>
+                                            <td class="text-blue font-bold">O</td>
+                                            <td>계류 중</td>
+                                            <td class="text-red font-bold">X</td>
+                                            <td class="text-red font-bold">X</td>
+                                            <td>계류 중</td>
+                                            <td>일부개정</td>
+                                            <td class="text-red font-bold">X</td>
+                                        </tr>
+                                        <tr class="red-border-row bottom">
+                                            <th style="background-color: #1e3a8a; color: white; font-weight: 700;">예산편성</th>
+                                            <td class="text-red font-bold">X</td>
+                                            <td class="text-red font-bold">X</td>
+                                            <td class="text-red font-bold">X</td>
+                                            <td class="text-red font-bold">X</td>
+                                            <td class="text-red font-bold">X</td>
+                                            <td class="text-red font-bold">X</td>
+                                            <td class="text-red font-bold">X</td>
+                                            <td class="text-red font-bold">X</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="wsb-table-caption">
+                                *강서구, 중구는 소규모로 진행 중  *서구, 부산진구, 북구, 금정구, 수영구, 기장군 : 조례 제정의지 없음
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <!-- VIEW: PLEDGE 4 -->
+        <div id="view-pledge4" class="view-section" style="background-color: #283a5e;">
+            <div class="pledge4-container reveal">
+                <h2 class="job-pledge-title">구청장이 일하면<br>장사가되고 일자리가 생깁니다</h2>
+                <div class="job-pledge-grid">
+                    <div class="job-card">
+                        <h4 class="job-card-title">기득권에 빚진 것 없는 노정현의 '파격 예산 혁신'</h4>
+                        <p class="job-card-text">"실익 없는 토목공사는중단하고, 오직 주민을 위해 예산을 쓰겠습니다"<br>노정현은 시멘트가 아닌 주민의 삶을 설계하겠습니다.<br>연제에 산다는 것이 자부심이자 재산이 되도록 만들겠습니다.</p>
+                    </div>
+                    <div class="job-card">
+                        <h4 class="job-card-title">주민이 직접 결정하는 '진짜 풀뿌리 연제'</h4>
+                        <p class="job-card-text">노정현의 휴대폰은 지난 20년간 주민 여러분께 활짝 열려 있었습니다.<br>이제 민원문자를 받는 수준을 넘어, 주민이 직접 구의 예산과 정책을 결정하는 '주민참여의 파격적 혁신'을 일구겠습니다.</p>
+                    </div>
+                    <div class="job-card">
+                        <h4 class="job-card-title">1천개의 좋은 공공일자리 창출 “되냐구요? 됩니다”</h4>
+                        <p class="job-card-text"><strong>시니어일자리 확대 :</strong> 최저임금 보장하고, 공정하게 채용<br>청년 인턴채용 및 30·40 경력보유여성 공공일자리 전국1위를 달성하겠습니다.</p>
+                    </div>
+                    <div class="job-card">
+                        <h4 class="job-card-title">구청장 잘 뽑았더니 장사가 된다. “이게 되네 정말”</h4>
+                        <p class="job-card-text"><strong>소상공인 맞춤 지원 :</strong> 노정현표 공공배달앱 도입, 연제구 동백전 캐시백확대로 매출과 마진 확대<br><strong>주차유연화 및 관리전환 :</strong> 시장 앞 무조건 단속대신 관리 (시니어 일자리 연계)<br><strong>상권 활성화 전담기구 신설 :</strong> 연제구 상권발전소 설립하고, 관내 조달 촉진 (구 내 38개 공공기관 대상)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW: PLEDGE 5 -->
+        <div id="view-pledge5" class="view-section">
+            <div class="city-pledge-hero reveal">
+                <img src="assets/image4.png" alt="아이 안고 있는 노정현 사진" class="city-hero-img" style="width: 100%; height: 100%; object-fit: cover;">
+                <div class="city-pledge-overlay">
+                    <h2 class="city-pledge-title">노정현이 그리는<br>내일이 더 살고싶은 도시,<br>연제구</h2>
+                </div>
+            </div>
+            <div class="city-pledge-container reveal">
+                <div class="city-pillar-grid">
+                    <!-- Pillar 1 -->
+                    <div class="city-pillar">
+                        <div class="pillar-header" style="display: flex; align-items: center; justify-content: flex-start; text-align: left; gap: 1rem;">
+                            <span class="pillar-num" style="margin-bottom: 0;">1</span>
+                            <h3 style="font-size: 1.15rem; br { display: none; }">2030청년이 모여드는 연제</h3>
+                        </div>
+                        <ul class="pillar-list">
+                            <li>
+                                <strong>초년생의 든든한 빽 '연제 노동권리 119'</strong>
+                                <p>· 구청장 직속 '직장갑질 119센터' 신설 및 찾아가는 노동법 교육</p>
+                                <p>· 5인 미만 사업장 '세이프티 존' 지정 및 권리보호 바우처 지급</p>
+                            </li>
+                            <li>
+                                <strong>전세사기 제로! 구청장 직속 '연제 안심전세센터'</strong>
+                                <p>· 악성 임대인 조회, 권리 분석까지 원스톱 지원 <span class="sub-gray">(주거복지 매니저 양성 ☞ 일자리 창출)</span></p>
+                            </li>
+                            <li>
+                                <strong>원룸 타운 '르네상스' 프로젝트</strong>
+                                <p>· 노후건물 구청이 매입하여 '공유오피스·스마트세탁소,커뮤니티 주방건립</p>
+                                <p>· AI 보안 카메라와 디자인 조명으로 가장 밝고 안전한 골목길 조성</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="city-pillar">
+                        <div class="pillar-header" style="display: flex; align-items: center; justify-content: flex-start; text-align: left; gap: 1rem;">
+                            <span class="pillar-num" style="margin-bottom: 0;">2</span>
+                            <h3 style="font-size: 1.15rem; br { display: none; }">급이 다른 주거와 교통 인프라</h3>
+                        </div>
+                        <ul class="pillar-list">
+                            <li>
+                                <strong>무상 공공마을버스</strong>
+                                <p>· 연제구 전역을 지하철역(연제구 9개)과 빠르게 연결할 공공마을버스</p>
+                            </li>
+                            <li>
+                                <strong>구청이 직접 챙기는 '아파트 공공관리제'</strong>
+                                <p>· 공사 비리 차단 및 투명한 관리 지원으로 주민 관리비 절감</p>
+                                <p>· 경비·미화 노동자 근무환경개선 지원으로 따뜻한 상생아파트</p>
+                            </li>
+                            <li>
+                                <strong>내 집앞 명품 쌈지공원</strong>
+                                <p>· 구청이 외면하는 공원 민원, '즉시 수용·해결 시스템'</p>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="city-pillar">
+                        <div class="pillar-header" style="display: flex; align-items: center; justify-content: flex-start; text-align: left; gap: 1rem;">
+                            <span class="pillar-num" style="margin-bottom: 0;">3</span>
+                            <h3 style="font-size: 1.15rem; br { display: none; }">아이 키우기 좋은 연제<br><span class="sub-header-txt" style="margin-top: 0.1rem;">3040여성 일자리 창출</span></h3>
+                        </div>
+                        <ul class="pillar-list">
+                            <li>
+                                <strong>통학로 100% 안심보장</strong>
+                                <p>· 워킹스쿨버스 전면 시행으로 안전지도사가 동행 <span class="sub-gray">☞ 3040여성일자리 창출</span></p>
+                            </li>
+                            <li>
+                                <strong>연제 맞춤 진로·진학 센터</strong>
+                                <p>· 수능준비와 진로상담. 구청이 부산최고수준으로 상시보장 <span class="sub-gray">☞ 청년일자리 창출</span></p>
+                            </li>
+                            <li>
+                                <strong>10대들의 스마트폰 중독 완화 '도서관 문해력 혁신'</strong>
+                                <p>· 도서관 업무 확장으로 실속있는 독서지도 <span class="sub-gray">☞ 여성일자리 창출</span></p>
+                            </li>
+                            <li>
+                                <strong>연제형 문화 누림 맞춤형 문화 큐레이션</strong>
+                                <p>· 전시·공연 관람 프로그램 상시 기획 <span class="sub-gray">☞ 여성일자리 창출</span></p>
+                            </li>
+                            <li>
+                                <strong>부모·자녀 마음을 잇는 '마음이음 119'</strong>
+                                <p>· 소통 부재로 힘든 부모상담과 청소년의 마음을 열어줄 청년멘토링 연결 <span class="sub-gray">☞ 여성 및 청년 일자리 창출</span></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VIEW: LOCATION (SECTION 4) -->
+        <div id="view-location" class="view-section">
+            <!-- Location Section -->
+            <section class="section location-section reveal" id="location">
+                <h2 class="section-title">오시는 길</h2>
+                <div class="map-container">
+                    <img src="assets/map.png" alt="오시는 길 약도" class="map-image zoomable-img" id="location-map-img">
+                </div>
+                <p class="address-text">
+                    <i class="fas fa-map-marker-alt"></i> <strong class="copy-address" id="copy-address" style="cursor: pointer; text-decoration: underline; text-underline-offset: 4px;">부산시 연제구 월드컵대로 141, 동화빌딩 7층</strong><br>
+                    <span class="address-subtext">혜암뷔페 옆 건물</span>
+                </p>
+            </section>
+        </div> <!-- End of view-location -->
+        </main> <!-- End of main-content -->
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-info">
+                <p class="footer-addr">부산시 연제구 월드컵대로 141, 동화빌딩 7층</p>
+                <p class="footer-tel">대표 전화번호: <a href="tel:010-4454-4094">010-4454-4094</a></p>
+            </div>
+            <div class="footer-sns">
+                <a href="#" class="sns-btn" data-web="https://www.instagram.com/yes__jh_/" data-aos="intent://instagram.com/_u/yes__jh_/#Intent;package=com.instagram.android;scheme=https;end">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="sns-btn" data-web="https://www.facebook.com/jinbobusan" data-aos="intent://page/jinbobusan#Intent;scheme=fb;package=com.facebook.katana;end">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="sns-btn" data-web="https://youtube.com/@Run_JH?si=UeLNEmN_S0znlACL" data-aos="intent://youtube.com/@Run_JH#Intent;package=com.google.android.youtube;scheme=https;end">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+            <p class="copyright">&copy; 2026 노정현 후보 선거캠프. All rights reserved.</p>
+        </footer>
+
+        <!-- Toast Notification -->
+        <div id="toast" class="toast">
+            <i class="fas fa-check-circle"></i> 
+            <span id="toast-msg">계좌가 복사되었습니다.</span>
+        </div>
+
+        <!-- Image Lightbox Modal -->
+        <div id="image-modal" class="image-modal">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <div class="modal-content">
+                <img id="modal-image" src="" alt="Enlarged Map">
+            </div>
         </div>
     </div>
-</footer>
-
-<!-- 7. 자바스크립트 스크립트 -->
-<script>
-// --- 모바일 메뉴 로직 ---
-const btn = document.getElementById('mobile-menu-btn');
-const menu = document.getElementById('mobile-menu');
-const mobileLinks = document.querySelectorAll('.mobile-link');
-
-btn.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-});
-
-mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        menu.classList.add('hidden');
-    });
-});
-
-// --- 전화번호 복사 로직 ---
-function copyPhoneNumber(numberStr) {
-    const tempElem = document.createElement('textarea');
-    tempElem.value = numberStr;
-    document.body.appendChild(tempElem);
-    tempElem.select();
-    try {
-        document.execCommand('copy');
-        alert('전화번호가 정상적으로 복사되었습니다.');
-    } catch (err) {
-        alert('복사에 실패했습니다. 번호를 직접 복사해주세요.');
-    }
-    document.body.removeChild(tempElem);
-}
-
-// --- 계좌번호 복사 로직 ---
-function copyAccount() {
-    const accountText = document.getElementById('account-number').innerText;
-    const tempElem = document.createElement('textarea');
-    tempElem.value = accountText;
-    document.body.appendChild(tempElem);
-    tempElem.select();
-    try {
-        document.execCommand('copy');
-        alert('계좌번호가 정상적으로 복사되었습니다. \n따뜻한 후원에 진심으로 감사드립니다!');
-    } catch (err) {
-        alert('복사에 실패했습니다. 번호를 직접 복사해주세요.');
-    }
-    document.body.removeChild(tempElem);
-}
-
-// --- 후원 상세 안내 아코디언 로직 ---
-const donateBtn = document.getElementById('donate-detail-btn');
-const donateContent = document.getElementById('donate-detail-content');
-const donateIcon = document.getElementById('donate-detail-icon');
-
-donateBtn.addEventListener('click', () => {
-    const isClosed = !donateContent.classList.contains('active');
-    if (isClosed) {
-        donateContent.classList.add('active');
-        donateIcon.classList.add('rotate-180');
-    } else {
-        donateContent.classList.remove('active');
-        donateIcon.classList.remove('rotate-180');
-    }
-});
-</script>
+    <script src="script.js"></script>
 </body>
 </html>
