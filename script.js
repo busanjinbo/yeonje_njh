@@ -353,6 +353,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    const copyMainPhoneBtns = document.querySelectorAll('.copy-main-phone');
+    copyMainPhoneBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            handleCopy("010-4454-4094", "전화번호가 복사되었습니다.");
+        });
+    });
+
     // Modal Image Zoom Logic
     const mapImgBtn = document.getElementById('location-map-img');
     const imageModal = document.getElementById('image-modal');
