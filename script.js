@@ -24,12 +24,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Copy Account Number Logic (후원계좌 복사)
     const copyBtn = document.getElementById('copy-btn');
-    const accountNumberText = document.getElementById('account-number').innerText;
+    const accountEl = document.getElementById('account-number');
+    const accountNumberText = accountEl ? accountEl.innerText : '113-2020-3080-07';
     const toast = document.getElementById('toast');
     let toastTimeout;
 
-    copyBtn.addEventListener('click', () => {
-        handleCopy(accountNumberText, '계좌번호가 복사되었습니다.');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', () => {
+            handleCopy(accountNumberText, '계좌번호가 복사되었습니다.');
+        });
+    }
+
+    const copyAccountBtns = document.querySelectorAll('.copy-account-btn');
+    copyAccountBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const targetId = btn.getAttribute('data-clipboard-target');
+            let textToCopy = "113-2020-3080-07"; // default
+            if (targetId) {
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) textToCopy = targetEl.innerText;
+            }
+            handleCopy(textToCopy, '계좌번호가 복사되었습니다.');
+        });
     });
 
     function handleCopy(textToCopy, successMsg) {
