@@ -533,6 +533,66 @@ body {
     transform: translateX(5px);
 }
 
+/* 1행 4열 소형 공약 버튼 그리드 */
+.hero-four-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+    width: calc(33.333% - 1.5rem); /* 데스크탑 3열 모드에 맞춤 */
+}
+.hero-four-grid.reveal {
+    transform: translateY(20px);
+    opacity: 0;
+}
+.hero-four-grid.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+.hero-pledge-list > :nth-child(2).hero-four-grid.reveal { transition-delay: 0.15s; }
+
+.grid-pledge-card {
+    background: var(--primary-cyan);
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 174, 239, 0.2);
+    border: 2px solid var(--primary-cyan);
+    transition: all 0.3s ease;
+}
+.grid-pledge-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 174, 239, 0.4);
+    background: #fff;
+    color: var(--primary-cyan);
+}
+.grid-img-wrap {
+    width: 45px;
+    height: 45px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+.grid-img-wrap img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+.grid-pledge-name {
+    font-size: 0.95rem;
+    font-weight: 800;
+}
+
 /* Sequenced Animation (Card appears together, image floats after) */
 .hero-pledge-item.active .image-layer {
     animation: floatUpDown 3s ease-in-out infinite;
@@ -805,6 +865,22 @@ body {
         border-radius: 50px; 
         width: 100%;
         justify-content: center;
+    }
+    .hero-four-grid {
+        width: 100%;
+        gap: 0.4rem;
+    }
+    .grid-pledge-card {
+        padding: 0;
+        border-radius: 50%;
+    }
+    .grid-img-wrap {
+        width: 38px;
+        height: 38px;
+        margin-bottom: 0.4rem;
+    }
+    .grid-pledge-name {
+        font-size: 0.85rem;
     }
     .hz-pledge-img-wrap {
         width: 65px;
@@ -2498,3 +2574,498 @@ body {
         object-position: 85% 15%;
     }
 }
+
+/* =========================================
+   걸어온 길 섹션 - 4번째/5번째 이미지 레이아웃
+========================================= */
+.noh-like-section {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.noh-like-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+.noh-like-title strong { color: #0284c7; }
+.noh-photo-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.noh-photo-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background: #0f172a;
+}
+.noh-photo-caption {
+    background: #1e3a8a;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.6rem 0.8rem;
+    text-align: center;
+}
+.noh-caption-list {
+    list-style: none;
+    padding: 0.5rem 0.8rem;
+    margin: 0;
+}
+.noh-caption-list li {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    padding-left: 1rem;
+    position: relative;
+}
+.noh-caption-list li::before {
+    content: "●";
+    color: #38bdf8;
+    position: absolute;
+    left: 0;
+    font-size: 0.6rem;
+    top: 3px;
+}
+.noh-like-body {
+    padding-top: 1rem;
+    border-top: 1px dashed #e2e8f0;
+}
+.noh-like-body p {
+    font-size: 1rem;
+    color: #334155;
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+    word-break: keep-all;
+}
+
+/* 5번째 이미지 - 소신의 길 */
+.fallen-section {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    border: 1px solid #e2e8f0;
+}
+.fallen-subtitle {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 0.3rem;
+}
+.fallen-title {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+.fallen-photo-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.fallen-photo-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background: #0f172a;
+}
+.fallen-body {
+    padding-top: 1rem;
+    border-top: 1px dashed #e2e8f0;
+}
+.fallen-body p {
+    font-size: 1rem;
+    color: #334155;
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+    word-break: keep-all;
+}
+
+/* 약력 + 손잡기 가로 배치 */
+.bio-hand-row {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    flex-wrap: wrap;
+}
+.bio-list-col {
+    flex: 1.5;
+    min-width: 260px;
+}
+.hand-col {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* 여론조사 그래프 */
+.poll-section {
+    background: #fff;
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.poll-header { margin-bottom: 1.5rem; }
+.poll-title {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+}
+.poll-sub {
+    font-size: 0.8rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+.poll-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+.poll-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.2rem;
+}
+.poll-card-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+}
+.poll-unit { font-size: 0.75rem; color: #64748b; font-weight: 400; }
+.poll-question { font-size: 0.8rem; color: #64748b; margin-bottom: 1rem; line-height: 1.5; }
+.poll-bars { display: flex; flex-direction: column; gap: 0.7rem; }
+.poll-bar-item { display: flex; align-items: center; gap: 0.6rem; }
+.poll-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #334155;
+    width: 3.5rem;
+    flex-shrink: 0;
+    text-align: right;
+}
+.poll-name-highlight { color: #0284c7; }
+.poll-bar-wrap { flex: 1; background: #e2e8f0; border-radius: 4px; height: 28px; position: relative; overflow: hidden; }
+.poll-bar {
+    height: 100%;
+    width: var(--bar-w, 0%);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 6px;
+    transition: width 1s cubic-bezier(0.2,0.8,0.2,1);
+    animation: growBar 1.2s ease-out forwards;
+}
+.poll-bar span { color: #fff; font-size: 0.85rem; font-weight: 800; }
+.poll-bar-blue { background: #0284c7 !important; }
+@keyframes growBar {
+    from { width: 0; }
+    to { width: var(--bar-w, 0%); }
+}
+.poll-footnote { font-size: 0.75rem; color: #94a3b8; margin-top: 0.8rem; }
+.poll-message {
+    background: #f0f9ff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 4px solid #0284c7;
+}
+.poll-message p {
+    font-size: 1rem;
+    color: #1e293b;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    word-break: keep-all;
+}
+.poll-quote {
+    font-size: 1.25rem !important;
+    font-weight: 900 !important;
+    color: #0284c7 !important;
+    margin: 0.8rem 0 !important;
+}
+
+/* 진보 구청장 공약 (pledge4) */
+.jinbo-pledge-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    color: #fff;
+}
+.jinbo-pledge-header { margin-bottom: 2rem; }
+.jinbo-main-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.3;
+    word-break: keep-all;
+}
+.jinbo-red { color: #f87171; font-style: normal; }
+.jinbo-two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+.jinbo-big-quote {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #f0f9ff;
+    line-height: 1.4;
+    margin-bottom: 0.3rem;
+}
+.jinbo-body-txt {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+.jinbo-body-txt p {
+    font-size: 1rem;
+    color: #cbd5e1;
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    word-break: keep-all;
+}
+.jinbo-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    backdrop-filter: blur(4px);
+}
+.jinbo-card-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #7dd3fc;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    word-break: keep-all;
+}
+.jinbo-bar {
+    display: inline-block;
+    width: 4px;
+    height: 1.1em;
+    background: #38bdf8;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 0.15em;
+}
+.jinbo-card p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 0.3rem;
+    word-break: keep-all;
+}
+
+/* 공약 카테고리 (청년/상인/주거/교육) */
+.category-pledge-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+.category-pledge-header {
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.youth-header { background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); }
+.merchant-header { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); }
+.housing-header { background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); }
+.edu-header { background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%); }
+
+/* 신규 공약 헤더 가로형 레이아웃 */
+.category-pledge-header.new-layout {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 1.5rem;
+    padding: 1.8rem 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.new-cat-img {
+    flex-shrink: 0;
+    width: 140px; /* 크기를 좀 더 크게 */
+    height: auto;
+    object-fit: contain;
+}
+.new-cat-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+.new-layout .cat-pledge-title {
+    margin: 0;
+    font-size: 2.2rem;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+.new-layout .cat-pledge-slogan {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.5px;
+    color: #334155;
+    word-break: keep-all;
+}
+
+@media (max-width: 480px) {
+    .category-pledge-header.new-layout {
+        gap: 1rem;
+        padding: 1.5rem 1rem;
+    }
+    .new-cat-img {
+        width: 100px;
+    }
+    .new-layout .cat-pledge-title {
+        font-size: 1.6rem;
+    }
+    .new-layout .cat-pledge-slogan {
+        font-size: 0.9rem;
+    }
+}
+.category-icon-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.cat-icon-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.cat-pledge-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin: 0;
+}
+.youth-color { color: #059669; }
+.merchant-color { color: #d97706; }
+.housing-color { color: #2563eb; }
+.edu-color { color: #7c3aed; }
+.cat-pledge-slogan {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1.6;
+    margin: 0;
+}
+.cat-pledge-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.cat-pledge-list > li {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+}
+.cat-pledge-list > li strong {
+    display: block;
+    font-size: 1.1rem;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+}
+.cat-pledge-list > li strong::before {
+    content: "● ";
+    color: #0284c7;
+}
+.cat-pledge-list > li p {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0 0 0.2rem 0;
+    word-break: keep-all;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .noh-photo-row, .fallen-photo-row { grid-template-columns: 1fr; }
+    .poll-grid { grid-template-columns: 1fr; }
+    .jinbo-two-col { grid-template-columns: 1fr; }
+    .jinbo-big-quote { font-size: 1.4rem; }
+    .jinbo-main-title { font-size: 1.5rem; }
+    .bio-hand-row { flex-direction: column; }
+    .noh-like-title { font-size: 1.7rem; }
+    .fallen-title { font-size: 1.6rem; }
+    .poll-title { font-size: 1.3rem; }
+}
+
+/* =========================================
+   사진 크롭 방지 & 이정식 막대색 & 아이콘 업데이트
+========================================= */
+
+/* noh-photo-item, fallen-photo-item 내 img - height 고정 제거, 전체 표시 */
+.noh-photo-item img,
+.fallen-photo-item img {
+    width: 100%;
+    height: auto !important;
+    display: block;
+    border-radius: 8px 8px 0 0;
+    object-fit: unset !important;
+}
+
+/* 여론조사 이정식 막대 - 어두운 남색 */
+.poll-bar.bar-navy { background: #1e3a8a !important; }
+
+/* 공약 카테고리 아이콘 - 원형 크롭 없이 크게 */
+.cat-icon-large {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 8px !important;
+    object-fit: contain !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 오시는 길 섹션 - 위쪽 여백 완전 제거 */
+.location-section {
+    padding-top: 1rem !important;
+    padding-bottom: 2rem !important;
+}
+#view-location {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+#view-location .section {
+    padding-top: 1rem !important;
+}
+.location-section .section-title {
+    margin-top: 0 !important;
+}
+

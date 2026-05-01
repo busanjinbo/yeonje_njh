@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // SPA Navigation & Routing Logic
-    const navLinks = document.querySelectorAll('.nav-link, .nav-logo, .btn-pledge, .hz-pledge-card');
+    const navLinks = document.querySelectorAll('.nav-link, .nav-logo, .btn-pledge, .hz-pledge-card, .grid-pledge-card');
     const viewSections = document.querySelectorAll('.view-section');
 
     // 1. 새로고침 시 이전에 있던 스크롤 위치로 멋대로 복원되지 않도록 방지
@@ -150,6 +150,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 el.classList.remove('active');
                 revealObserver.observe(el);
             });
+
+            // location 섹션은 reveal 없이 즉시 표시 (IntersectionObserver 미트리거 방지)
+            if (targetId === 'view-location') {
+                setTimeout(() => {
+                    targetSect.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+                }, 50);
+            }
             
             // 유튜브 영상 뷰 전환 시 자동재생 및 백그라운드 재생 방지 로직
             const ytContainer = document.getElementById('youtube-container-box');
