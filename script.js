@@ -213,6 +213,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
             
+            // 상단바 모바일 메뉴 닫기 기능
+            const navMenu = document.querySelector('.nav-menu');
+            const navMobileTrigger = document.getElementById('nav-mobile-trigger');
+            if (navMenu && navMenu.classList.contains('open')) {
+                navMenu.classList.remove('open');
+                if (navMobileTrigger) {
+                    navMobileTrigger.classList.remove('active');
+                    const icon = navMobileTrigger.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                }
+            }
+            
             if (targetId) {
                 e.preventDefault();
                 const currentHash = window.location.hash.substring(1) || 'view-home';
@@ -385,6 +400,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
         imageModal.addEventListener('click', () => {
             imageModal.classList.remove('show');
+        });
+    }
+
+    // 9. Mobile Top Nav Hamburger Menu
+    const navMobileTrigger = document.getElementById('nav-mobile-trigger');
+    const navMenu = document.querySelector('.nav-menu');
+    if (navMobileTrigger && navMenu) {
+        navMobileTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navMenu.classList.toggle('open');
+            navMobileTrigger.classList.toggle('active');
+            
+            const icon = navMobileTrigger.querySelector('i');
+            if (navMenu.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && navMenu.classList.contains('open') && !navMenu.contains(e.target) && !navMobileTrigger.contains(e.target)) {
+                navMenu.classList.remove('open');
+                navMobileTrigger.classList.remove('active');
+                const icon = navMobileTrigger.querySelector('i');
+                if (icon) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
         });
     }
 });

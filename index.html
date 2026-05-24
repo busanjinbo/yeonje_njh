@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>일하는 구청장 연제사람 노정현</title>
-    <meta name="description" content="진보당 노정현 연제구청장 후보 홈페이지 - 일하는 구청장, 연제사람 노정현의 공약과 약력을 확인하세요.">
+    <title>민주당·진보당 단일후보 5 노정현 | 한번만 기회를 주십시오, 가루가 되도록 일하겠습니다</title>
+    <meta name="description" content="민주당·진보당 단일후보 5 노정현 후보 홈페이지 - 한번만 기회를 주십시오. 가루가 되도록 일하겠습니다. 공약과 약력을 확인하세요.">
     <meta name="format-detection" content="telephone=no">
     
     <!-- Open Graph / 카카오톡, 페이스북, 텔레그램 미리보기용 썸네일 설정 -->
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="일하는 구청장 연제사람 노정현">
-    <meta property="og:title" content="진보당 노정현 연제구청장 후보 홈페이지">
-    <meta property="og:description" content="진보당 노정현 연제구청장 후보 홈페이지 - 일하는 구청장, 연제사람 노정현의 공약과 약력을 확인하세요.">
+    <meta property="og:site_name" content="민주당·진보당 단일후보 5 노정현">
+    <meta property="og:title" content="민주당·진보당 단일후보 5 노정현 홈페이지">
+    <meta property="og:description" content="민주당·진보당 단일후보 5 노정현 후보 홈페이지 - 한번만 기회를 주십시오. 가루가 되도록 일하겠습니다. 공약과 약력을 확인하세요.">
     <!-- 썸네일 이미지는 첨부해주신 통합 이미지(thumbnail.png)로 연결해 둡니다. -->
     <meta property="og:image" content="https://busanjinbo.github.io/yeonje_njh/assets/thumbnail.jpg?v=2">
     
@@ -22,8 +22,8 @@
 
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSans.css" rel="stylesheet">
-    <!-- Google Fonts: Do Hyeon & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Do Hyeon, Nanum Brush Script & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Brush+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -76,12 +76,12 @@
         <nav class="top-nav">
             <div class="nav-container">
                 <a href="#" data-target="view-home" class="nav-logo">
-                    <img src="assets/logo.png" alt="진보당" class="nav-logo-img nav-desktop-only" style="height: 14px; margin-right: 0.35rem; transform: translateY(-1px);">
-                    <span style="color: #1e293b; font-size: 1.1rem; letter-spacing: -0.5px; align-self: center;">
-                        <span style="font-weight: 800;">연제구청장</span><span style="font-weight: 400;">후보</span>
+                    <img src="assets/artboard_6.png" alt="더불어민주당 진보당" class="nav-logo-img">
+                    <span class="nav-candidate-title-wrap">
+                        <span style="font-weight: 800;">연제구청장</span><span style="font-weight: 400; margin-left: 0.15rem;">단일후보</span>
                     </span>
                     <span class="nav-candidate-name">
-                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 1.9rem; height: 1.9rem; background-color: var(--primary-cyan); color: white; border-radius: 50%; margin-right: 0.2rem; font-size: 1.3rem; transform: translateY(-1px);">5</span>노정현
+                        <img src="assets/artboard_2.png" alt="5" class="nav-num-img">노정현
                     </span>
                 </a>
                 <div class="nav-menu">
@@ -101,6 +101,10 @@
                     </div>
                     <a href="#" data-target="view-location" class="nav-link">오시는 길</a>
                 </div>
+                <!-- Mobile Navigation Trigger -->
+                <button class="nav-mobile-trigger" id="nav-mobile-trigger">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </nav>
 
@@ -109,26 +113,53 @@
         
         <!-- VIEW: HOME (SECTION 1) -->
         <div id="view-home" class="view-section active-section">
-            <!-- Hero Section -->
-            <header class="hero" id="home">
-            <!-- 시네마틱 팬다운 배경 -->
-            <div class="hero-bg-anim"></div>
-            
-            <!-- 절대 좌표 기반 레이어 컨테이너 -->
-            <div class="hero-layer-container">
-                <!-- 상단 타이틀 -->
-                <img src="assets/hero_title.png" alt="일하는 구청장" class="hl-title">
-                
-                <!-- 하단 서브타이틀 및 이름 -->
-                <div class="hl-subtitle-wrap">
-                    <img src="assets/hero_subtitle.png" alt="연제사람" class="hl-sub">
-                    <img src="assets/hero_name.png" alt="노정현" class="hl-name">
-                </div>
-                
-                <!-- 메인 인물 사진 -->
-                <img src="assets/hero.png" alt="노정현 후보" class="hl-portrait">
-            </div>
+            <!-- Hero Section (전면 교체) -->
+            <header class="hero-banner" id="home">
+                <img src="assets/Gemini_Generated_Image_p495t8p495t8p495_copy.png" alt="한번만 일할 기회를 주십시오 가루가 되도록 일하겠습니다." class="hero-banner-img">
             </header>
+
+            <!-- Unification Section (단일화 알림 및 사전투표 독려) -->
+            <section class="unification-section reveal">
+                <div class="unification-container">
+                    <div class="unification-header">
+                        <div class="unif-inline-wrap">
+                            <span class="unif-inline-text">내란청산을 위해</span>
+                            <img src="assets/artboard_5.png" alt="더불어민주당 진보당 단일후보" class="unif-inline-img">
+                            <span class="unif-inline-text">가 되었습니다</span>
+                        </div>
+                        <h3 class="unif-thanks">이정식 후보의 결단에 감사드립니다.</h3>
+                    </div>
+                    
+                    <div class="unification-gallery">
+                        <div class="unif-photo-card">
+                            <img src="assets/DSC06490-3.jpg" alt="노정현 이정식 단일화 선언" class="unif-photo">
+                        </div>
+                        <div class="unif-photo-card">
+                            <img src="assets/DSC06483-2_copy.jpg" alt="노정현 이정식 포옹" class="unif-photo">
+                        </div>
+                    </div>
+                    
+                    <div class="unif-warning-box">
+                        <div class="warning-icon-wrap">
+                            <i class="fas fa-exclamation-circle pulsing-warning-icon"></i>
+                        </div>
+                        <h4 class="warning-title">그런데 걱정이 있습니다.</h4>
+                        <p class="warning-desc-strong">
+                            6월3일 본투표 용지는 이미 인쇄되어 무효표가 걱정입니다.
+                        </p>
+                        
+                        <div class="warning-action-card">
+                            <p class="action-text-highlight">
+                                사퇴표시가 인쇄되는 <span class="bg-yellow-highlight">사전투표</span>해주시고<br>
+                                주변에 널리 알려주십시오
+                            </p>
+                            <div class="warning-date-badge">
+                                <i class="far fa-calendar-alt"></i> 사전투표일: 5월 29일(금) ~ 5월 30일(토)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <!-- Donation Area (Moved to Main Section) -->
             <div class="hero-support reveal">
@@ -195,37 +226,49 @@
                         </div>
                     </a>
 
-                    <!-- 청년, 상인, 주거, 교육 1행 4열 묶음 -->
-                    <div class="hero-four-grid reveal">
-                        <!-- 청년 -->
-                        <a href="#" data-target="view-pledge6" class="grid-pledge-card">
-                            <div class="grid-img-wrap">
-                                <img src="assets/ch 6-1.png" alt="청년" style="transform: scale(1.2);">
-                            </div>
-                            <span class="grid-pledge-name">청년</span>
-                        </a>
-                        <!-- 상인 -->
-                        <a href="#" data-target="view-pledge7" class="grid-pledge-card">
-                            <div class="grid-img-wrap">
-                                <img src="assets/ch 6-2.png" alt="상인" style="transform: scale(1.2);">
-                            </div>
-                            <span class="grid-pledge-name">상인</span>
-                        </a>
-                        <!-- 주거 -->
-                        <a href="#" data-target="view-pledge8" class="grid-pledge-card">
-                            <div class="grid-img-wrap">
-                                <img src="assets/ch 7-1.png" alt="주거" style="transform: scale(1.2);">
-                            </div>
-                            <span class="grid-pledge-name">주거</span>
-                        </a>
-                        <!-- 교육 -->
-                        <a href="#" data-target="view-pledge9" class="grid-pledge-card">
-                            <div class="grid-img-wrap">
-                                <img src="assets/ch 7-2.png" alt="교육" style="transform: scale(1.2);">
-                            </div>
-                            <span class="grid-pledge-name">교육</span>
-                        </a>
-                    </div>
+                    <!-- 청년공약 Section -->
+                    <a href="#" data-target="view-pledge6" class="hz-pledge-card hero-pledge-item reveal">
+                        <div class="hz-pledge-img-wrap image-layer">
+                            <img src="assets/ch 6-1.png" alt="청년공약">
+                        </div>
+                        <div class="hz-pledge-text">
+                            <span class="pledge-name">청년공약</span>
+                            <i class="fas fa-chevron-right pledge-arrow"></i>
+                        </div>
+                    </a>
+
+                    <!-- 상인공약 Section -->
+                    <a href="#" data-target="view-pledge7" class="hz-pledge-card hero-pledge-item reveal">
+                        <div class="hz-pledge-img-wrap image-layer">
+                            <img src="assets/ch 6-2.png" alt="상인공약">
+                        </div>
+                        <div class="hz-pledge-text">
+                            <span class="pledge-name">상인공약</span>
+                            <i class="fas fa-chevron-right pledge-arrow"></i>
+                        </div>
+                    </a>
+
+                    <!-- 주거공약 Section -->
+                    <a href="#" data-target="view-pledge8" class="hz-pledge-card hero-pledge-item reveal">
+                        <div class="hz-pledge-img-wrap image-layer">
+                            <img src="assets/ch 7-1.png" alt="주거공약">
+                        </div>
+                        <div class="hz-pledge-text">
+                            <span class="pledge-name">주거공약</span>
+                            <i class="fas fa-chevron-right pledge-arrow"></i>
+                        </div>
+                    </a>
+
+                    <!-- 교육공약 Section -->
+                    <a href="#" data-target="view-pledge9" class="hz-pledge-card hero-pledge-item reveal">
+                        <div class="hz-pledge-img-wrap image-layer">
+                            <img src="assets/ch 7-2.png" alt="교육공약">
+                        </div>
+                        <div class="hz-pledge-text">
+                            <span class="pledge-name">교육공약</span>
+                            <i class="fas fa-chevron-right pledge-arrow"></i>
+                        </div>
+                    </a>
 
                     <!-- Delivery Section -->
                     <a href="#" data-target="view-pledge1" class="hz-pledge-card hero-pledge-item reveal">
