@@ -796,30 +796,10 @@ body {
     margin-left: -1.2em;
 }
 
-/* Home Pledge Section & Header */
-.home-pledge-section {
-    width: 100%;
-    background-color: #e0f2fe; /* 기존(f0f9ff)보다 조금 더 진한 옅은 하늘색 (Tailwind blue-100) */
-    padding: 4rem 0 1rem 0; 
-}
-.home-pledge-header {
-    text-align: center;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto 2.5rem auto;
-}
-.home-pledge-title {
-    font-family: 'GmarketSans', sans-serif; /* 사용자 요청: 지마켓 산스 */
-    font-size: 2.6rem;
-    color: #0284c7; 
-    font-weight: 700; /* 지마켓 산스 볼드 */
-    letter-spacing: 0px; /* 지마켓 폰트 자간 최적화 */
-}
-
 /* Hero Pledge List (Horizontal Cards) */
 .hero-pledge-list {
     width: 100%;
-    padding: 0 1.5rem 4rem 1.5rem;
+    padding: 3.5rem 0 0 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -1227,9 +1207,6 @@ body {
         display: flex;
         flex-direction: column;
         grid-template-columns: 1fr;
-    }
-    .home-pledge-title {
-        font-size: 2.1rem;
     }
     .hz-pledge-card {
         padding: 1.2rem 1.5rem;
@@ -3460,5 +3437,322 @@ body {
 }
 .location-section .section-title {
     margin-top: 0 !important;
+}
+
+/* --- Vision Critique Section --- */
+.vision-critique-section {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #ffffff;
+  padding: 60px 20px;
+  color: #333333;
+}
+.vision-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* 상단 헤드라인 스타일 */
+.vision-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.vision-sub-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  padding: 0.6rem 1.6rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.tag-red {
+  color: #e60012;
+  font-weight: 800;
+  font-size: 1.45rem;
+}
+.tag-vs {
+  color: #adb5bd;
+  font-weight: 900;
+  font-size: 1.2rem;
+  font-style: italic;
+}
+.tag-blue {
+  color: #002b62;
+  font-weight: 800;
+  font-size: 1.45rem;
+}
+.vision-main-title {
+  color: #002b62;
+  font-family: 'GmarketSans', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin: 0 auto 2rem auto;
+  word-break: keep-all;
+  max-width: 800px;
+  line-height: 1.35;
+}
+
+/* 핵심문구 강조 박스 */
+.vision-description-box {
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-left: 5px solid #002b62;
+  border-radius: 4px 16px 16px 4px;
+  padding: 2rem 2.5rem;
+  max-width: 850px;
+  margin: 2rem auto 0 auto;
+  box-shadow: 0 10px 30px rgba(2, 132, 199, 0.08);
+  text-align: left;
+}
+.vision-description-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #1e293b;
+  margin: 0;
+  word-break: keep-all;
+}
+.vision-description-text strong {
+  color: #002b62;
+  font-weight: 800;
+}
+.vision-description-text .highlight-underline {
+  background: linear-gradient(to top, rgba(254, 240, 138, 0.6) 40%, transparent 40%);
+  padding: 0 2px;
+}
+
+/* 반응형 그리드 시스템 (PC에서 3단, 모바일에서 1단) */
+.critique-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+/* 개별 카드 스타일 */
+.critique-card {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  transition: transform 0.2s ease;
+}
+.critique-card:hover {
+  transform: translateY(-5px);
+}
+.card-icon-wrap {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+  line-height: 1.4;
+  margin: 0 0 25px 0;
+  word-break: keep-all;
+}
+.highlight-blue {
+  color: #002b62;
+  font-size: 19px;
+}
+
+/* 카드 내부 비교 박스 공통 */
+.compare-box {
+  border-radius: 8px;
+  padding: 15px;
+  text-align: left;
+  position: relative;
+}
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+.compare-text {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  word-break: keep-all;
+}
+
+/* 주석수 후보 영역 스타일 (레드/그레이 톤) */
+.block-joo {
+  background-color: #fff1f2;
+  border: 1px solid #ffe4e6;
+}
+.joo-badge {
+  background-color: #e60012;
+  color: #ffffff;
+}
+.block-joo .compare-text {
+  color: #666666;
+}
+.sub-note {
+  display: block;
+  font-size: 11px;
+  color: #888888;
+  margin-top: 8px;
+  line-height: 1.3;
+}
+
+/* VS 구분선 스타일 */
+.compare-divider {
+  font-size: 12px;
+  font-weight: 900;
+  color: #adb5bd;
+  margin: 12px 0;
+  position: relative;
+}
+.compare-divider::before, .compare-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background-color: #dee2e6;
+}
+.compare-divider::before { left: 0; }
+.compare-divider::after { right: 0; }
+
+/* 노정현 후보 영역 스타일 (네이비/스카이블루 톤) */
+.block-noh {
+  background-color: #e6f4fe;
+  border: 1px solid #addef8;
+}
+.noh-badge {
+  background-color: #002b62;
+  color: #ffffff;
+}
+.block-noh .compare-text {
+  color: #002b62;
+}
+.block-noh .compare-text strong {
+  color: #e60012;
+  font-weight: 700;
+}
+
+/* 하단 푸터 영역 스타일 */
+.vision-footer {
+  text-align: center;
+  border-top: 2.5px dashed #dee2e6;
+  padding-top: 68px;
+  margin-top: 30px;
+}
+.vision-footer p {
+  font-size: 1.95rem;
+  font-weight: 500;
+  color: #374151;
+  margin: 0 0 16px 0;
+}
+.vision-footer h4 {
+  font-size: 2.92rem;
+  font-weight: 800;
+  color: #002b62;
+  margin: 0 0 24px 0;
+  letter-spacing: -0.5px;
+}
+/* Vision Action CTA Button */
+.vision-action-btn-wrap {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+.vision-action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  background-color: #002b62;
+  color: #ffffff;
+  padding: 1.5rem 3.3rem;
+  border-radius: 100px;
+  font-size: 1.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 6px 22px rgba(0, 43, 98, 0.25);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 3px solid #002b62;
+  word-break: keep-all;
+}
+.vision-action-btn strong {
+  color: #fef08a; /* 노란색 강조색상 */
+  font-weight: 800;
+  padding: 0 6px;
+}
+.vision-action-btn:hover {
+  background-color: #ffffff;
+  color: #002b62;
+  box-shadow: 0 12px 35px rgba(0, 43, 98, 0.35);
+  transform: translateY(-4px);
+}
+.vision-action-btn:hover strong {
+  color: #0284c7; /* 호버 시 파란색으로 변조 */
+}
+.vision-action-btn i {
+  font-size: 1.8rem;
+  transition: transform 0.3s ease;
+}
+.vision-action-btn:hover i {
+  transform: translateX(8px);
+}
+
+/* 스마트폰/태블릿 대응 반응형 미디어 쿼리 */
+@media (max-width: 991px) {
+  .critique-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 767px) {
+  .vision-critique-section {
+    padding: 40px 15px;
+  }
+  .vision-main-title {
+    font-size: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  .vision-description-box {
+    padding: 1.5rem;
+    margin: 1.5rem 0.5rem 0 0.5rem;
+  }
+  .vision-description-text {
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  .vision-sub-tag {
+    padding: 0.5rem 1.2rem;
+    gap: 0.5rem;
+  }
+  .tag-red, .tag-blue {
+    font-size: 1.25rem;
+  }
+  .tag-vs {
+    font-size: 1.0rem;
+  }
+  .critique-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .critique-card {
+    padding: 25px 15px;
+  }
+  .vision-footer p {
+    font-size: 1.55rem;
+  }
+  .vision-footer h4 {
+    font-size: 2.15rem;
+  }
+  .vision-action-btn {
+    font-size: 1.55rem;
+    padding: 1.2rem 2.4rem;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 480px;
+  }
 }
 
