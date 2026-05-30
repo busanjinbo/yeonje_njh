@@ -404,27 +404,57 @@
                         <div class="video-slider-track-wrap">
                             <div class="video-slider-track" id="youtube-slider-track">
                                 <div class="video-slide" data-video-id="Y5L1U0gO73Q">
-                                    <div class="video-iframe-wrap"></div>
+                                    <div class="video-thumbnail-wrap">
+                                        <img src="https://img.youtube.com/vi/Y5L1U0gO73Q/hqdefault.jpg" alt="1. 개소식 연설 #눈물주의" class="video-thumb">
+                                        <div class="play-btn-overlay">
+                                            <i class="fas fa-play"></i>
+                                        </div>
+                                    </div>
                                     <p class="video-slide-title">1. 개소식 연설 #눈물주의</p>
                                 </div>
                                 <div class="video-slide" data-video-id="r-NwBRijy3Y">
-                                    <div class="video-iframe-wrap"></div>
+                                    <div class="video-thumbnail-wrap">
+                                        <img src="https://img.youtube.com/vi/r-NwBRijy3Y/hqdefault.jpg" alt="2. 준비된 행정혁신 노정현!" class="video-thumb">
+                                        <div class="play-btn-overlay">
+                                            <i class="fas fa-play"></i>
+                                        </div>
+                                    </div>
                                     <p class="video-slide-title">2. 준비된 행정혁신 노정현!</p>
                                 </div>
                                 <div class="video-slide" data-video-id="PY6epvilFz8">
-                                    <div class="video-iframe-wrap"></div>
+                                    <div class="video-thumbnail-wrap">
+                                        <img src="https://img.youtube.com/vi/PY6epvilFz8/hqdefault.jpg" alt="3. 주민을 위해 노정현이 간다" class="video-thumb">
+                                        <div class="play-btn-overlay">
+                                            <i class="fas fa-play"></i>
+                                        </div>
+                                    </div>
                                     <p class="video-slide-title">3. 주민을 위해 노정현이 간다</p>
                                 </div>
                                 <div class="video-slide" data-video-id="xFtyC4PhL0s">
-                                    <div class="video-iframe-wrap"></div>
+                                    <div class="video-thumbnail-wrap">
+                                        <img src="https://img.youtube.com/vi/xFtyC4PhL0s/hqdefault.jpg" alt="4. [선거송] 종이비행기" class="video-thumb">
+                                        <div class="play-btn-overlay">
+                                            <i class="fas fa-play"></i>
+                                        </div>
+                                    </div>
                                     <p class="video-slide-title">4. [선거송] 종이비행기</p>
                                 </div>
                                 <div class="video-slide" data-video-id="ZG91XIhoNRU">
-                                    <div class="video-iframe-wrap"></div>
+                                    <div class="video-thumbnail-wrap">
+                                        <img src="https://img.youtube.com/vi/ZG91XIhoNRU/hqdefault.jpg" alt="5. [선거송] 환희의 송가" class="video-thumb">
+                                        <div class="play-btn-overlay">
+                                            <i class="fas fa-play"></i>
+                                        </div>
+                                    </div>
                                     <p class="video-slide-title">5. [선거송] 환희의 송가</p>
                                 </div>
                                 <div class="video-slide" data-video-id="RsqlXl1FSF8">
-                                    <div class="video-iframe-wrap"></div>
+                                    <div class="video-thumbnail-wrap">
+                                        <img src="https://img.youtube.com/vi/RsqlXl1FSF8/hqdefault.jpg" alt="6. [선거송] 기호송" class="video-thumb">
+                                        <div class="play-btn-overlay">
+                                            <i class="fas fa-play"></i>
+                                        </div>
+                                    </div>
                                     <p class="video-slide-title">6. [선거송] 기호송</p>
                                 </div>
                             </div>
@@ -1213,6 +1243,16 @@
             <span class="close-modal" id="close-modal">&times;</span>
             <div class="modal-content">
                 <img id="modal-image" src="" alt="Enlarged Map">
+            </div>
+        </div>
+
+        <!-- Video Player Lightbox Modal -->
+        <div id="video-player-modal" class="image-modal">
+            <span class="close-modal" id="close-video-modal">&times;</span>
+            <div class="modal-content video-modal-content" style="max-width: 960px; width: 90%; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                <div id="modal-video-wrap" style="position: relative; padding-bottom: 56.25%; height: 0; width: 100%;">
+                    <!-- iframe will be dynamically injected here -->
+                </div>
             </div>
         </div>
     </div>

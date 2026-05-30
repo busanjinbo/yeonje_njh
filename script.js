@@ -158,24 +158,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }, 50);
             }
             
-            // 유튜브 영상 뷰 전환 시 자동재생 및 백그라운드 재생 방지 로직
-            const sliderTrack = document.getElementById('youtube-slider-track');
-            if (sliderTrack) {
-                const slides = sliderTrack.querySelectorAll('.video-slide');
-                if (targetId === 'view-about') {
-                    slides.forEach(slide => {
-                        const wrap = slide.querySelector('.video-iframe-wrap');
-                        const videoId = slide.getAttribute('data-video-id');
-                        const title = slide.querySelector('.video-slide-title').innerText;
-                        if (wrap && (wrap.innerHTML.trim() === '' || wrap.innerHTML.indexOf('iframe') === -1)) {
-                            wrap.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}?rel=0&vq=hd1080" title="${title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius:12px;"></iframe>`;
-                        }
-                    });
-                } else {
-                    slides.forEach(slide => {
-                        const wrap = slide.querySelector('.video-iframe-wrap');
-                        if (wrap) wrap.innerHTML = '';
-                    });
+            // 유튜브 영상 뷰 전환 시 재생 방지를 위한 비디오 모달 클리어 로직
+            if (targetId !== 'view-about') {
+                const videoModal = document.getElementById('video-player-modal');
+                if (videoModal && videoModal.classList.contains('show')) {
+                    videoModal.classList.remove('show');
+                    const wrap = document.getElementById('modal-video-wrap');
+                    if (wrap) wrap.innerHTML = '';
                 }
             }
         }
@@ -568,5 +557,45 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         }
+    }
+
+    // Video Fullscreen Modal Logic
+    const videoSlides = document.querySelectorAll('.video-slide');
+    const videoPlayerModal = document.getElementById('video-player-modal');
+    const videoPlayerModalWrap = document.getElementById('modal-video-wrap');
+    const closeVideoModal = document.getElementById('close-video-modal');
+
+    if (videoSlides.length > 0 && videoPlayerModal && videoPlayerModalWrap) {
+        videoSlides.forEach(slide => {
+            const thumbWrap = slide.querySelector('.video-thumbnail-wrap');
+            if (thumbWrap) {
+                thumbWrap.addEventListener('click', () => {
+                    const videoId = slide.getAttribute('data-video-id');
+                    const title = slide.querySelector('.video-slide-title').innerText;
+                    
+                    // iframe 동적 주입 및 자동재생 활성화
+                    videoPlayerModalWrap.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&vq=hd1080" title="${title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%; border:none;"></iframe>`;
+                    
+                    // 모달 노출
+                    videoPlayerModal.classList.add('show');
+                });
+            }
+        });
+
+        const hideVideoModal = () => {
+            videoPlayerModal.classList.remove('show');
+            videoPlayerModalWrap.innerHTML = ''; // iframe 제거하여 재생 정지
+        };
+
+        if (closeVideoModal) {
+            closeVideoModal.addEventListener('click', hideVideoModal);
+        }
+
+        videoPlayerModal.addEventListener('click', (e) => {
+            // 모달 콘텐츠 바깥쪽 클릭 시 닫기
+            if (e.target === videoPlayerModal) {
+                hideVideoModal();
+            }
+        });
     }
 });
