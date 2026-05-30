@@ -159,14 +159,23 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             // 유튜브 영상 뷰 전환 시 자동재생 및 백그라운드 재생 방지 로직
-            const ytContainer = document.getElementById('youtube-container-box');
-            if (ytContainer) {
+            const sliderTrack = document.getElementById('youtube-slider-track');
+            if (sliderTrack) {
+                const slides = sliderTrack.querySelectorAll('.video-slide');
                 if (targetId === 'view-about') {
-                    if (ytContainer.innerHTML.trim() === '' || ytContainer.innerHTML.indexOf('iframe') === -1) {
-                        ytContainer.innerHTML = `<iframe width="100%" height="100%" src="${ytContainer.getAttribute('data-src')}" title="[민생편] 주민을 위해 노정현이 간다!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.1); aspect-ratio:16/9;"></iframe>`;
-                    }
+                    slides.forEach(slide => {
+                        const wrap = slide.querySelector('.video-iframe-wrap');
+                        const videoId = slide.getAttribute('data-video-id');
+                        const title = slide.querySelector('.video-slide-title').innerText;
+                        if (wrap && (wrap.innerHTML.trim() === '' || wrap.innerHTML.indexOf('iframe') === -1)) {
+                            wrap.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}?rel=0&vq=hd1080" title="${title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius:12px;"></iframe>`;
+                        }
+                    });
                 } else {
-                    ytContainer.innerHTML = '';
+                    slides.forEach(slide => {
+                        const wrap = slide.querySelector('.video-iframe-wrap');
+                        if (wrap) wrap.innerHTML = '';
+                    });
                 }
             }
         }
@@ -434,5 +443,130 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
+    }
+
+    // 반응형 비디오 슬라이더 로직
+    const track = document.getElementById('youtube-slider-track');
+    const prevBtn = document.getElementById('video-prev-btn');
+    const nextBtn = document.getElementById('video-next-btn');
+    const indicators = document.querySelectorAll('#video-slider-indicators .indicator');
+    const trackWrap = document.querySelector('.video-slider-track-wrap');
+    
+    let currentSlideIndex = 0;
+    const totalSlides = 6;
+    
+    function getSlideWidth() {
+        if (!track) return 0;
+        const firstSlide = track.querySelector('.video-slide');
+        return firstSlide ? firstSlide.getBoundingClientRect().width : 0;
+    }
+    
+    function getGap() {
+        if (window.innerWidth > 768) {
+            // styles.css에 정의된 PC에서의 .video-slider-track gap은 1rem (= 16px)
+            return 16;
+        }
+        return 0; // 모바일에서는 gap이 없고 슬라이드가 100% 꽉 찹니다.
+    }
+
+    function updateSlider() {
+        if (!track) return;
+        const isMobile = window.innerWidth <= 768;
+        const slideWidth = getSlideWidth();
+        const gap = getGap();
+        
+        // 인덱스 범위 초과 방지
+        const maxIndex = isMobile ? totalSlides - 1 : totalSlides - 3;
+        if (currentSlideIndex > maxIndex) currentSlideIndex = maxIndex;
+        if (currentSlideIndex < 0) currentSlideIndex = 0;
+        
+        if (isMobile) {
+            // 모바일은 100% 단위로 이동
+            track.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+        } else {
+            // PC는 실제 슬라이드 너비 + gap 만큼 이동
+            const moveX = currentSlideIndex * (slideWidth + gap);
+            track.style.transform = `translateX(-${moveX}px)`;
+        }
+        
+        // 인디케이터 업데이트 (모바일 환경 또는 인디케이터가 활성화된 상황 대응)
+        indicators.forEach((ind, index) => {
+            if (index === currentSlideIndex) {
+                ind.classList.add('active');
+            } else {
+                ind.classList.remove('active');
+            }
+        });
+    }
+
+    if (track) {
+        // PC용 화살표 클릭 핸들러
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                if (currentSlideIndex > 0) {
+                    currentSlideIndex--;
+                    updateSlider();
+                }
+            });
+        }
+        
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                const maxIndex = window.innerWidth <= 768 ? totalSlides - 1 : totalSlides - 3;
+                if (currentSlideIndex < maxIndex) {
+                    currentSlideIndex++;
+                    updateSlider();
+                }
+            });
+        }
+        
+        // 인디케이터 클릭 핸들러
+        indicators.forEach(indicator => {
+            indicator.addEventListener('click', function() {
+                const idx = parseInt(this.getAttribute('data-slide-index'), 10);
+                currentSlideIndex = idx;
+                updateSlider();
+            });
+        });
+        
+        // 리사이즈 이벤트 대응
+        window.addEventListener('resize', () => {
+            updateSlider();
+        });
+        
+        // 모바일 터치 스와이프 (손가락 드래그) 이벤트 추가
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        if (trackWrap) {
+            trackWrap.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            
+            trackWrap.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+        }
+        
+        function handleSwipe() {
+            const swipeDistance = touchEndX - touchStartX;
+            const threshold = 50; // 스와이프 최소 감지 거리 (50px)
+            
+            if (swipeDistance < -threshold) {
+                // 왼쪽으로 스와이프 -> 다음 영상 보기
+                const maxIndex = window.innerWidth <= 768 ? totalSlides - 1 : totalSlides - 3;
+                if (currentSlideIndex < maxIndex) {
+                    currentSlideIndex++;
+                    updateSlider();
+                }
+            } else if (swipeDistance > threshold) {
+                // 오른쪽으로 스와이프 -> 이전 영상 보기
+                if (currentSlideIndex > 0) {
+                    currentSlideIndex--;
+                    updateSlider();
+                }
+            }
+        }
     }
 });

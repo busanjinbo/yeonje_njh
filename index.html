@@ -149,13 +149,26 @@
                         </p>
                         
                         <div class="warning-action-card">
-                            <p class="action-text-highlight">
-                                사퇴표시가 인쇄되는 <span class="bg-yellow-highlight">사전투표</span>해주시고<br>
-                                주변에 널리 알려주십시오
+                            <p class="action-text-highlight" style="margin-bottom: 1.2rem; color: #1e293b; font-size: 1.35rem; line-height: 1.5; font-weight: 800;">
+                                사퇴한 후보자에게 투표하면 무효가 됩니다.<br>
+                                무효표를 방지하기 위해 주변에 널리 알려주세요.
                             </p>
-                            <div class="warning-date-badge">
-                                <i class="far fa-calendar-alt"></i> 사전투표일: 5월 29일(금) ~ 5월 30일(토)
+                            <div class="warning-date-badge" style="margin-top: 0; margin-bottom: 1rem; background-color: #fff1f2; border-color: #fecdd3; color: #e11d48; box-shadow: 0 2px 5px rgba(225, 29, 72, 0.1);">
+                                <i class="far fa-calendar-alt"></i> 본투표일 : 6월 3일(수) 오전 6시 ~ 오후 6시
                             </div>
+                            <ul style="text-align: left; font-size: 0.95rem; line-height: 1.6; color: #475569; list-style-type: none; padding-left: 0; margin-bottom: 1.2rem; display: inline-block; max-width: 480px; width: 100%;">
+                                <li style="margin-bottom: 0.4rem; display: flex; align-items: flex-start; gap: 0.3rem;">
+                                    <span style="color: #e11d48;">•</span>
+                                    <span>주소지 관할 지정 투표소로 가셔야 투표가능합니다.</span>
+                                </li>
+                                <li style="display: flex; align-items: flex-start; gap: 0.3rem;">
+                                    <span style="color: #e11d48;">•</span>
+                                    <span>주민등록증, 운전면허증, 여권 등 신분증 필참</span>
+                                </li>
+                            </ul>
+                            <a href="https://si.nec.go.kr/" target="_blank" class="btn-donate" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none; width: 100%; max-width: 320px; background-color: #e11d48; border-color: #e11d48; color: white; margin: 0 auto; box-shadow: 0 4px 15px rgba(225, 29, 72, 0.3);">
+                                내 투표소 찾기 <i class="fas fa-search-location"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -376,13 +389,59 @@
                 </div>
               </div>
             </section>
-        </div> <!-- End of view-home -->
+                        </div> <!-- End of view-home -->
 
         <!-- VIEW: ABOUT (SECTION 2) -->
         <div id="view-about" class="view-section">
             <section class="section about-section" style="padding-top: 0;">
-                <!-- YouTube Video Container -->
-                <div class="video-responsive-container reveal" id="youtube-container-box" data-src="https://www.youtube.com/embed/PY6epvilFz8?rel=0&amp;vq=hd1080">
+                <!-- YouTube Video Slider (6 Videos) -->
+                <div class="video-slider-section reveal">
+                    <div class="video-slider-container">
+                        <!-- 데스크톱용 좌우 화살표 버튼 -->
+                        <button class="slider-btn prev-btn" id="video-prev-btn" aria-label="이전 영상">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="video-slider-track-wrap">
+                            <div class="video-slider-track" id="youtube-slider-track">
+                                <div class="video-slide" data-video-id="Y5L1U0gO73Q">
+                                    <div class="video-iframe-wrap"></div>
+                                    <p class="video-slide-title">1. 개소식 연설 #눈물주의</p>
+                                </div>
+                                <div class="video-slide" data-video-id="r-NwBRijy3Y">
+                                    <div class="video-iframe-wrap"></div>
+                                    <p class="video-slide-title">2. 준비된 행정혁신 노정현!</p>
+                                </div>
+                                <div class="video-slide" data-video-id="PY6epvilFz8">
+                                    <div class="video-iframe-wrap"></div>
+                                    <p class="video-slide-title">3. 주민을 위해 노정현이 간다</p>
+                                </div>
+                                <div class="video-slide" data-video-id="xFtyC4PhL0s">
+                                    <div class="video-iframe-wrap"></div>
+                                    <p class="video-slide-title">4. [선거송] 종이비행기</p>
+                                </div>
+                                <div class="video-slide" data-video-id="ZG91XIhoNRU">
+                                    <div class="video-iframe-wrap"></div>
+                                    <p class="video-slide-title">5. [선거송] 환희의 송가</p>
+                                </div>
+                                <div class="video-slide" data-video-id="RsqlXl1FSF8">
+                                    <div class="video-iframe-wrap"></div>
+                                    <p class="video-slide-title">6. [선거송] 기호송</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="slider-btn next-btn" id="video-next-btn" aria-label="다음 영상">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <!-- 모바일용 인디케이터 도트 -->
+                    <div class="slider-indicators" id="video-slider-indicators">
+                        <span class="indicator active" data-slide-index="0"></span>
+                        <span class="indicator" data-slide-index="1"></span>
+                        <span class="indicator" data-slide-index="2"></span>
+                        <span class="indicator" data-slide-index="3"></span>
+                        <span class="indicator" data-slide-index="4"></span>
+                        <span class="indicator" data-slide-index="5"></span>
+                    </div>
                 </div>
 
                 <div class="about-content-container" style="max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 3rem 1.5rem;">
@@ -459,6 +518,35 @@
                                 </div>
                                 <div class="hand-link-text">노정현 손잡기</div>
                             </a>
+                        </div>
+                    </div>
+
+                    <!-- KBS 여론조사 그래프 -->
+                    <div class="poll-section reveal" style="margin-top:3rem;">
+                        <div class="poll-header">
+                            <h2 class="poll-title"><span style="color:#0ea5e9;">KBS</span> 5월 7일~9일 여론조사</h2>
+                            <p class="poll-sub">조사의뢰자 : KBS부산·울산 | 선거여론조사기관 : (주)한국리서치<br>조사일자 : 2026년 5월 7일 ~ 9일 (3일간) | 조사방법 : 면접원에 의한 전화면접조사 100%<br>*그 밖의 사항은 중앙선거여론조사심의위원회 홈페이지 참조</p>
+                        </div>
+                        <div class="poll-grid" style="display: flex; justify-content: center; grid-template-columns: 1fr;">
+                            <div class="poll-card" style="max-width: 500px; width: 100%;">
+                                <h3 class="poll-card-title">3자 대결 <span class="poll-unit">(단위:%)</span></h3>
+                                <p class="poll-question">Q. 차기 연제구청장으로 누가 가장 적합하다고 생각하십니까?</p>
+                                <div class="poll-bars">
+                                    <div class="poll-bar-item">
+                                        <div class="poll-bar-wrap"><div class="poll-bar" style="--bar-h:28%;background:#e53e3e;"><span>28.0</span></div></div>
+                                        <span class="poll-name">주석수</span>
+                                    </div>
+                                    <div class="poll-bar-item">
+                                        <div class="poll-bar-wrap"><div class="poll-bar poll-bar-blue" style="--bar-h:26%;"><span>26.0</span></div></div>
+                                        <span class="poll-name poll-name-highlight">노정현</span>
+                                    </div>
+                                    <div class="poll-bar-item">
+                                        <div class="poll-bar-wrap"><div class="poll-bar" style="--bar-h:16%;background:#1e3a8a;"><span>16.0</span></div></div>
+                                        <span class="poll-name">이정식</span>
+                                    </div>
+                                </div>
+                                <p class="poll-footnote">없다(17.0%) | 무응답(13.0%)</p>
+                            </div>
                         </div>
                     </div>
 
