@@ -3357,6 +3357,33 @@ body {
     word-break: keep-all;
 }
 
+.jinbo-video-wrap {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    width: 100%;
+    max-width: 480px;
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.jinbo-video-wrap iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+@media (max-width: 768px) {
+    .jinbo-video-wrap {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
 /* 공약 카테고리 (청년/상인/주거/교육) */
 .category-pledge-wrap {
     max-width: 900px;
