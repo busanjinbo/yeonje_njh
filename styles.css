@@ -400,7 +400,7 @@ body {
 .warning-desc-strong {
     font-size: 1.6rem;
     font-weight: 800;
-    color: #e53e3e;
+    color: #e53e3e; /* 원래의 경고 빨간색으로 복구 */
     line-height: 1.4;
     word-break: keep-all;
     margin-bottom: 1.5rem;
@@ -2110,23 +2110,140 @@ body {
     }
 
     /* ABOUT SECTION (걸어온 길) */
-    .video-responsive-container {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-        height: 0;
-        overflow: hidden;
-        margin-bottom: 0; /* Content follows right after */
+    /* Video Carousel / Slider Styles */
+    .video-slider-section {
         width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        background: #000;
+        max-width: 900px;
+        margin: 0 auto 2.5rem auto;
+        padding: 0 1.5rem;
     }
-    .video-responsive-container iframe {
+
+    .video-slider-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .video-slider-track-wrap {
+        overflow: hidden;
+        width: 100%;
+        border-radius: 16px;
+    }
+
+    .video-slider-track {
+        display: flex;
+        transition: transform 0.4s ease-in-out;
+        width: 100%;
+    }
+
+    .video-slide {
+        flex: 0 0 100%; /* 모바일에서는 1개 슬라이드가 100% 차지 */
+        padding: 0 0.5rem;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .video-iframe-wrap {
+        position: relative;
+        padding-bottom: 56.25%; /* 16:9 Ratio */
+        height: 0;
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #000;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .video-iframe-wrap iframe {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+        border: none;
+    }
+
+    .video-slide-title {
+        margin-top: 0.8rem;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text-main);
+        text-align: center;
+        word-break: keep-all;
+    }
+
+    /* Slider Navigation Buttons */
+    .slider-btn {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid var(--border-color);
+        color: var(--text-main);
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.2s ease;
+        z-index: 10;
+        flex-shrink: 0;
+        display: none; /* 모바일에서는 숨김 (사용자 요청: 터치 슬라이드 동작) */
+    }
+
+    .slider-btn:hover {
+        background: var(--primary-cyan);
+        color: #fff;
+        border-color: var(--primary-cyan);
+        transform: scale(1.05);
+    }
+
+    /* Indicators */
+    .slider-indicators {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1.2rem;
+    }
+
+    .slider-indicators .indicator {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #cbd5e1;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .slider-indicators .indicator.active {
+        background: var(--primary-cyan);
+        width: 24px;
+        border-radius: 4px;
+    }
+
+    /* Responsive adjustments for PC/Tablet */
+    @media (min-width: 768px) {
+        .video-slider-container {
+            gap: 0.8rem;
+        }
+        
+        .video-slide {
+            flex: 0 0 calc(33.333% - 0.67rem); /* 3단 뷰어 형태로 가로 너비 설정 */
+            padding: 0;
+        }
+
+        .video-slider-track {
+            gap: 1rem;
+        }
+
+        .slider-btn {
+            display: flex; /* PC에서는 버튼 노출 */
+        }
     }
     
     .about-flex-wrap {
@@ -3365,20 +3482,6 @@ body {
     content: "● ";
     color: #0284c7;
 }
-
-/* 카테고리별 공약명 및 블릿 컬러 매칭 */
-#view-pledge6 .cat-pledge-list > li strong { color: #059669; }
-#view-pledge6 .cat-pledge-list > li strong::before { color: #059669; }
-
-#view-pledge7 .cat-pledge-list > li strong { color: #0284c7; }
-#view-pledge7 .cat-pledge-list > li strong::before { color: #0284c7; }
-
-#view-pledge8 .cat-pledge-list > li strong { color: #ea580c; }
-#view-pledge8 .cat-pledge-list > li strong::before { color: #ea580c; }
-
-#view-pledge9 .cat-pledge-list > li strong { color: #db2777; }
-#view-pledge9 .cat-pledge-list > li strong::before { color: #db2777; }
-
 .cat-pledge-list > li p {
     font-size: 0.95rem;
     color: #475569;
@@ -3768,5 +3871,67 @@ body {
     width: 100%;
     max-width: 480px;
   }
+}
+
+/* Video Thumbnail and Play Button overlay styling */
+.video-thumbnail-wrap {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Ratio */
+    height: 0;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-thumbnail-wrap:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.video-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+}
+
+.video-thumbnail-wrap:hover .video-thumb {
+    filter: brightness(0.75);
+}
+
+.play-btn-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 55px;
+    height: 55px;
+    background-color: rgba(0, 174, 239, 0.85); /* 시안 블루 테마 컬러 */
+    color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 15px rgba(0, 174, 239, 0.4);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.play-btn-overlay i {
+    transform: translateX(2px); /* 재생 아이콘 균형 조정 */
+}
+
+.video-thumbnail-wrap:hover .play-btn-overlay {
+    background-color: #ffffff;
+    color: var(--primary-cyan);
+    transform: translate(-50%, -50%) scale(1.15);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
 }
 

@@ -149,13 +149,26 @@
                         </p>
                         
                         <div class="warning-action-card">
-                            <p class="action-text-highlight">
-                                사퇴표시가 인쇄되는 <span class="bg-yellow-highlight">사전투표</span>해주시고<br>
-                                주변에 널리 알려주십시오
+                            <p class="action-text-highlight" style="margin-bottom: 1.2rem; color: #1e293b; font-size: 1.35rem; line-height: 1.5; font-weight: 800;">
+                                사퇴한 후보자에게 투표하면 무효가 됩니다.<br>
+                                무효표를 방지하기 위해 주변에 널리 알려주세요.
                             </p>
-                            <div class="warning-date-badge">
-                                <i class="far fa-calendar-alt"></i> 사전투표일: 5월 29일(금) ~ 5월 30일(토)
+                            <div class="warning-date-badge" style="margin-top: 0; margin-bottom: 1rem; background-color: #fff1f2; border-color: #fecdd3; color: #e11d48; box-shadow: 0 2px 5px rgba(225, 29, 72, 0.1);">
+                                <i class="far fa-calendar-alt"></i> 본투표일 : 6월 3일(수) 오전 6시 ~ 오후 6시
                             </div>
+                            <ul style="text-align: left; font-size: 0.95rem; line-height: 1.6; color: #475569; list-style-type: none; padding-left: 0; margin-bottom: 1.2rem; display: inline-block; max-width: 480px; width: 100%;">
+                                <li style="margin-bottom: 0.4rem; display: flex; align-items: flex-start; gap: 0.3rem;">
+                                    <span style="color: #e11d48;">•</span>
+                                    <span>주소지 관할 지정 투표소로 가셔야 투표가능합니다.</span>
+                                </li>
+                                <li style="display: flex; align-items: flex-start; gap: 0.3rem;">
+                                    <span style="color: #e11d48;">•</span>
+                                    <span>주민등록증, 운전면허증, 여권 등 신분증 필참</span>
+                                </li>
+                            </ul>
+                            <a href="https://si.nec.go.kr/" target="_blank" class="btn-donate" style="display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none; width: 100%; max-width: 320px; background-color: #e11d48; border-color: #e11d48; color: white; margin: 0 auto; box-shadow: 0 4px 15px rgba(225, 29, 72, 0.3);">
+                                내 투표소 찾기 <i class="fas fa-search-location"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -376,13 +389,89 @@
                 </div>
               </div>
             </section>
-        </div> <!-- End of view-home -->
+                        </div> <!-- End of view-home -->
 
         <!-- VIEW: ABOUT (SECTION 2) -->
         <div id="view-about" class="view-section">
             <section class="section about-section" style="padding-top: 0;">
-                <!-- YouTube Video Container -->
-                <div class="video-responsive-container reveal" id="youtube-container-box" data-src="https://www.youtube.com/embed/PY6epvilFz8?rel=0&amp;vq=hd1080">
+                <!-- YouTube Video Slider (6 Videos) -->
+                <div class="video-slider-section reveal">
+                    <div class="video-slider-container">
+                        <!-- 데스크톱용 좌우 화살표 버튼 -->
+                        <button class="slider-btn prev-btn" id="video-prev-btn" aria-label="이전 영상">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="video-slider-track-wrap">
+                            <div class="video-slider-track" id="youtube-slider-track">
+                                <div class="video-slide" data-video-id="Y5L1U0gO73Q">
+                                    <div class="video-thumbnail-wrap">
+                                        <img src="https://img.youtube.com/vi/Y5L1U0gO73Q/hqdefault.jpg" alt="1. 개소식 연설 #눈물주의" class="video-thumb">
+                                        <div class="play-btn-overlay">
+                                            <i class="fas fa-play"></i>
+                                        </div>
+                                    </div>
+                                    <p class="video-slide-title">1. 개소식 연설 #눈물주의</p>
+                                </div>
+                                <div class="video-slide" data-video-id="r-NwBRijy3Y">
+                                    <div class="video-thumbnail-wrap">
+                                        <img src="https://img.youtube.com/vi/r-NwBRijy3Y/hqdefault.jpg" alt="2. 준비된 행정혁신 노정현!" class="video-thumb">
+                                        <div class="play-btn-overlay">
+                                            <i class="fas fa-play"></i>
+                                        </div>
+                                    </div>
+                                    <p class="video-slide-title">2. 준비된 행정혁신 노정현!</p>
+                                </div>
+                                <div class="video-slide" data-video-id="PY6epvilFz8">
+                                    <div class="video-thumbnail-wrap">
+                                        <img src="https://img.youtube.com/vi/PY6epvilFz8/hqdefault.jpg" alt="3. 주민을 위해 노정현이 간다" class="video-thumb">
+                                        <div class="play-btn-overlay">
+                                            <i class="fas fa-play"></i>
+                                        </div>
+                                    </div>
+                                    <p class="video-slide-title">3. 주민을 위해 노정현이 간다</p>
+                                </div>
+                                <div class="video-slide" data-video-id="xFtyC4PhL0s">
+                                    <div class="video-thumbnail-wrap">
+                                        <img src="https://img.youtube.com/vi/xFtyC4PhL0s/hqdefault.jpg" alt="4. [선거송] 종이비행기" class="video-thumb">
+                                        <div class="play-btn-overlay">
+                                            <i class="fas fa-play"></i>
+                                        </div>
+                                    </div>
+                                    <p class="video-slide-title">4. [선거송] 종이비행기</p>
+                                </div>
+                                <div class="video-slide" data-video-id="ZG91XIhoNRU">
+                                    <div class="video-thumbnail-wrap">
+                                        <img src="https://img.youtube.com/vi/ZG91XIhoNRU/hqdefault.jpg" alt="5. [선거송] 환희의 송가" class="video-thumb">
+                                        <div class="play-btn-overlay">
+                                            <i class="fas fa-play"></i>
+                                        </div>
+                                    </div>
+                                    <p class="video-slide-title">5. [선거송] 환희의 송가</p>
+                                </div>
+                                <div class="video-slide" data-video-id="RsqlXl1FSF8">
+                                    <div class="video-thumbnail-wrap">
+                                        <img src="https://img.youtube.com/vi/RsqlXl1FSF8/hqdefault.jpg" alt="6. [선거송] 기호송" class="video-thumb">
+                                        <div class="play-btn-overlay">
+                                            <i class="fas fa-play"></i>
+                                        </div>
+                                    </div>
+                                    <p class="video-slide-title">6. [선거송] 기호송</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="slider-btn next-btn" id="video-next-btn" aria-label="다음 영상">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <!-- 모바일용 인디케이터 도트 -->
+                    <div class="slider-indicators" id="video-slider-indicators">
+                        <span class="indicator active" data-slide-index="0"></span>
+                        <span class="indicator" data-slide-index="1"></span>
+                        <span class="indicator" data-slide-index="2"></span>
+                        <span class="indicator" data-slide-index="3"></span>
+                        <span class="indicator" data-slide-index="4"></span>
+                        <span class="indicator" data-slide-index="5"></span>
+                    </div>
                 </div>
 
                 <div class="about-content-container" style="max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 3rem 1.5rem;">
@@ -459,6 +548,35 @@
                                 </div>
                                 <div class="hand-link-text">노정현 손잡기</div>
                             </a>
+                        </div>
+                    </div>
+
+                    <!-- KBS 여론조사 그래프 -->
+                    <div class="poll-section reveal" style="margin-top:3rem;">
+                        <div class="poll-header">
+                            <h2 class="poll-title"><span style="color:#0ea5e9;">KBS</span> 5월 7일~9일 여론조사</h2>
+                            <p class="poll-sub">조사의뢰자 : KBS부산·울산 | 선거여론조사기관 : (주)한국리서치<br>조사일자 : 2026년 5월 7일 ~ 9일 (3일간) | 조사방법 : 면접원에 의한 전화면접조사 100%<br>*그 밖의 사항은 중앙선거여론조사심의위원회 홈페이지 참조</p>
+                        </div>
+                        <div class="poll-grid" style="display: flex; justify-content: center; grid-template-columns: 1fr;">
+                            <div class="poll-card" style="max-width: 500px; width: 100%;">
+                                <h3 class="poll-card-title">3자 대결 <span class="poll-unit">(단위:%)</span></h3>
+                                <p class="poll-question">Q. 차기 연제구청장으로 누가 가장 적합하다고 생각하십니까?</p>
+                                <div class="poll-bars">
+                                    <div class="poll-bar-item">
+                                        <div class="poll-bar-wrap"><div class="poll-bar" style="--bar-h:28%;background:#e53e3e;"><span>28.0</span></div></div>
+                                        <span class="poll-name">주석수</span>
+                                    </div>
+                                    <div class="poll-bar-item">
+                                        <div class="poll-bar-wrap"><div class="poll-bar poll-bar-blue" style="--bar-h:26%;"><span>26.0</span></div></div>
+                                        <span class="poll-name poll-name-highlight">노정현</span>
+                                    </div>
+                                    <div class="poll-bar-item">
+                                        <div class="poll-bar-wrap"><div class="poll-bar" style="--bar-h:16%;background:#1e3a8a;"><span>16.0</span></div></div>
+                                        <span class="poll-name">이정식</span>
+                                    </div>
+                                </div>
+                                <p class="poll-footnote">없다(17.0%) | 무응답(13.0%)</p>
+                            </div>
                         </div>
                     </div>
 
@@ -900,7 +1018,6 @@
                 <div class="jinbo-pledge-header">
                     <h2 class="jinbo-main-title">이재명<sup>1)</sup>, 매슈브라운<sup>2)</sup>처럼<br>구청장이 <em class="jinbo-red">제대로</em> 일하면</h2>
                 </div>
-
                 <div class="jinbo-two-col">
                     <div class="jinbo-left-col">
                         <p class="jinbo-big-quote">&ldquo;장사가 되고&rdquo;</p>
@@ -914,10 +1031,6 @@
                             <p>누가 해도 차이 없는 관리행정은 솔직히 무가치합니다.</p>
                             <p>부산에는 없었던 행정혁신! 이재명처럼, 매슈브라운처럼 노정현이 해내겠습니다.</p>
                             <p>존경하는 연제주민께. &nbsp;&nbsp;&nbsp;&nbsp; 노정현 드림.</p>
-                            
-                            <!-- YouTube Video Container -->
-                            <div class="video-responsive-container reveal" id="youtube-pledge4-box" data-src="https://www.youtube.com/embed/QA2LPFtbM8E?rel=0&amp;vq=hd1080" style="margin-top: 1.5rem; border-radius: 12px; background: transparent; overflow: hidden;">
-                            </div>
                         </div>
                     </div>
                     <div class="jinbo-right-col">
@@ -966,7 +1079,7 @@
                     </li>
                     <li>
                         <strong>청년인턴채용</strong>
-                        <p>청년에겐 든든한 경력을 채워줄<br>'질 좋은 청년인턴 채용' 전국 1위 달성</p>
+                        <p>청년에게 든든한 경력을 채워주는<br>'질 좋은 청년인턴 채용 전 1위' 달성</p>
                     </li>
                     <li>
                         <strong>구청장 직속 '직장갑질 119센터' 운영 및 '찾아가는 노동법 교육'</strong>
@@ -974,12 +1087,12 @@
                     </li>
                     <li>
                         <strong>전세사기 제로! 구청장 직속 '연제 안심 전세센터'</strong>
-                        <p>악성임대인 조회, 권리분석<br>안심케어까지 원스톱 지원</p>
+                        <p>악성임대인 조회 권리분석까지 원스톱 지원<br>안심케어까지 원스톱 지원</p>
                     </li>
                     <li>
                         <strong>원룸타운 '르네상스' 프로젝트</strong>
-                        <p>• 노후건물 구청이 매입하여 공유오피스, 커뮤니티센터, 스마트 세탁소, 공유주방 건립</p>
-                        <p>• AI보안카메라와 밝은 디자인 조명으로 안전한 골목길 조성</p>
+                        <p>· 노후건물 구청이 매입하여 공유오피스, 커뮤니티센터 스마트 세탁소, 공유주방 건립</p>
+                        <p>· AI보안카메라와 밝은 디자인 조명으로 안전한 골목길 조성</p>
                     </li>
                 </ul>
             </div>
@@ -998,20 +1111,20 @@
                 <ul class="cat-pledge-list">
                     <li>
                         <strong>연제발 부산형 공공배달앱</strong>
-                        <p>부산시장과 손잡고 수수료 제로 배달앱을 성공시켜 부산에서는 배민과 쿠팡을 퇴출시키겠습니다.</p>
+                        <p>부산시장과 손잡고 수수료 제로 배달앱을 성공시켜 부산에서는 배민과 쿠팡을 퇴출시킵니다.</p>
                     </li>
                     <li>
                         <strong>전통시장 활성화</strong>
-                        <p>전통시장 앞 주차단속 대신 주차관리로 전통시장 이용률 획기적 증대 ➡️ 시니어 일자리 창출</p>
+                        <p>전통시장 알 주차단속 대신 주차관리로 전통시장 이용을 획기적 증대 ⇒ 사·나·이 일자리 창출</p>
                     </li>
                     <li>
                         <strong>구청장 직속 연제상권발전소 설립</strong>
-                        <p>• 연제구 관내의 모든 상가를 골목형상가로 지정하여 체계적인 지원</p>
-                        <p>• 상인민원 원스톱 해결 시스템 구축</p>
+                        <p>· 연제구 가의 모든 상가를 골목성가로 지정하여 체계적인 지원</p>
+                        <p>· 상인민원 원스톱 해결 시스템 구축</p>
                     </li>
                     <li>
                         <strong>연제 지역상품 우선구매 실현</strong>
-                        <p>공공기관이 많은 연제구 장점을 살려 공공기관의 지역상가 우선 구매를 대폭 확대</p>
+                        <p>공공기관이 많은 연제구 강점을 살려 공공기관의 지역상품 우선구매 대폭 확대</p>
                     </li>
                 </ul>
             </div>
@@ -1024,21 +1137,21 @@
                     <img src="assets/ch 7-1.png" alt="주거공약 아이콘" class="new-cat-img">
                     <div class="new-cat-text">
                         <h2 class="cat-pledge-title housing-color">주거 공약</h2>
-                        <p class="cat-pledge-slogan">주거의 가치가 올라가야<br>연제주민의 삶의 질도 올라갑니다</p>
+                        <p class="cat-pledge-slogan">주거의 가치가 올라가<br>연제주민의 삶의 질도 올라갑니다</p>
                     </div>
                 </div>
                 <ul class="cat-pledge-list">
                     <li>
                         <strong>무상 공공마을버스</strong>
-                        <p>지하철역이 많아도 정작 접근이 불편한 연제,<br>전국 최초로 출근길 통합 무상공공버스를 도입하여 출근길 불편해소</p>
+                        <p>지하철역이 많아도 정작 접근이 불편한 연제<br>전국 최초로 읍군지 총합 무상공공버스를 도입하여 출근길 불편해소</p>
                     </li>
                     <li>
                         <strong>아파트 관리, 구청이 지원</strong>
-                        <p>입대위와 입주민, 아파트 관리사무소 업무를 방치하거나 규제하는 대신 구청이 체계적 관리 지원</p>
+                        <p>담합부터 입주민 아파트 관리사무소 업무를 방치하거나 규제하는 대신 구청이 체계적 관리 지원</p>
                     </li>
                     <li>
                         <strong>공원민원 즉시 해결! 내 집 앞 명품 쌈지공원 확대</strong>
-                        <p>구청이 외면하기 일쑤인 공원민원 원스톱 해결시스템 구축</p>
+                        <p>구청이 외면하기 일쑤인 공원민원 원스톱 해결시스템</p>
                     </li>
                     <li>
                         <strong>주택가 공영주차장 전면 확대</strong>
@@ -1060,25 +1173,24 @@
                 </div>
                 <ul class="cat-pledge-list">
                     <li>
-                        <strong>영유아맘 고민해결</strong>
-                        <p>• 달빛어린이(아이사랑)병원 재오픈</p>
-                        <p>• 아픈아이 돌봄센터 운영</p>
-                    </li>
-                    <li>
                         <strong>통학로 100% 안심 보장</strong>
-                        <p>워킹스쿨버스 전면 시행으로 교통 안전지도사가 동행 ➡️ 3040여성일자리 창출</p>
+                        <p>워킹스쿨버스 전면 시행으로 교통 안전지도사가 동행 ⇒ 3040여성일자리 창출</p>
                     </li>
                     <li>
                         <strong>연제 맞춤 진로·진학 센터</strong>
-                        <p>수능준비와 진로상담, 구청이 부산 최고수준으로 상시보장 ➡️ 청년일자리 창출</p>
+                        <p>수능준비와 진로상담 구청이 부산 최고수준으로 상시보장 ⇒ 청년일자리 창출</p>
                     </li>
                     <li>
                         <strong>10대들의 스마트폰 중독 완화 '문해력 혁신 도서관 프로그램'</strong>
-                        <p>도서관 업무 확장으로 실속있는 독서지도 ➡️ 여성일자리 창출</p>
+                        <p>도서관 업무 확장으로 실속있는 독서지도 ⇒ 여성일자리 창출</p>
                     </li>
                     <li>
-                        <strong>부모-자녀 마음을 잇는 '마음이음 119'</strong>
-                        <p>소통 부재로 힘든 부모상담과 청소년의 마음을 열어줄 청년멘토링 연결 ➡️ 여성 및 청년 일자리 창출</p>
+                        <strong>연제형 문화 누림 '맞춤형 문화큐레이션'</strong>
+                        <p>전시·공연 관람 프로그램 주민참여 상시 기획 ⇒ 여성일자리 창출</p>
+                    </li>
+                    <li>
+                        <strong>부모·자녀 마음을 잇는 '마음이음 119'</strong>
+                        <p>소통 부재로 힘든 부모상담과 청소년의 마음을 열어줄 청년멘토링 연결 ⇒ 여성 및 청년 일자리 창출</p>
                     </li>
                 </ul>
             </div>
@@ -1131,6 +1243,16 @@
             <span class="close-modal" id="close-modal">&times;</span>
             <div class="modal-content">
                 <img id="modal-image" src="" alt="Enlarged Map">
+            </div>
+        </div>
+
+        <!-- Video Player Lightbox Modal -->
+        <div id="video-player-modal" class="image-modal">
+            <span class="close-modal" id="close-video-modal">&times;</span>
+            <div class="modal-content video-modal-content" style="max-width: 960px; width: 90%; aspect-ratio: 16/9; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+                <div id="modal-video-wrap" style="position: relative; padding-bottom: 56.25%; height: 0; width: 100%;">
+                    <!-- iframe will be dynamically injected here -->
+                </div>
             </div>
         </div>
     </div>
